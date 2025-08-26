@@ -1,0 +1,38 @@
+extends Area2D
+var _gravity = 900
+var velocity = Vector2()
+var originalParent
+@export var prize = false
+func _ready() -> void:
+	originalParent = self.get_parent()
+func _physics_process(delta: float) -> void:
+	#if the toy is high up and not grabbed, it drops
+	if global_position.y < 550 and !self.get_parent().is_in_group("player"):
+		velocity.y += gravity * delta
+		global_position.y += velocity.y * delta
+func _on_body_entered(body: Node2D) -> void:
+	print("Body Entered")
+	#if the claw touches it, it is grabbed
+	if body.is_in_group("player") and !prize:
+		prize = true
+		#Stores the global position it's in, otherwise, it will teleport 
+			#and be messy
+		var globalPos = global_position
+		#the toy becomes a child of the claw, moving whenever it moves
+		self.get_parent().remove_child(self)
+		body.get_child(0).add_child(self)
+		global_position = globalPos
+func _on_crane_drop_toy(toy) -> void:
+	if toy.prize:
+		print("DropToy")
+
+		#Take current global position
+		var globalPos = toy.global_position
+		#remove itself from parent
+		toy.get_parent().remove_child(toy)
+		#become child of original parent
+		toy.originalParent.add_child(toy)
+		#set to global position
+		toy.global_position = globalPos
+		#print(get_parent())
+		toy.prize = false
