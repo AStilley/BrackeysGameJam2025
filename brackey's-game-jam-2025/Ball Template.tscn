@@ -1,19 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://c6ao1ppbtytcg"]
 
-[ext_resource type="Script" uid="uid://cxx6ngjhnvx3v" path="res://Ball.gd" id="1_f1u2t"]
+[ext_resource type="Script" uid="uid://bhtmsote631tm" path="res://ballTmp.gd" id="1_f1u2t"]
 [ext_resource type="Texture2D" uid="uid://cuf40glimnv8e" path="res://icon.svg" id="1_j2dmm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f1u2t"]
 radius = 47.0106
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="ballTmp" type="RigidBody2D"]
 script = ExtResource("1_f1u2t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(487, 144)
 shape = SubResource("CircleShape2D_f1u2t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(485, 145)
-scale = Vector2(0.492187, 0.511719)
+position = Vector2(-0.249976, -0.124993)
+scale = Vector2(0.488281, 0.513672)
 texture = ExtResource("1_j2dmm")
