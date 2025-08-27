@@ -26,7 +26,9 @@ func move():
 	#this usually allows the player to move in all cardinal directions
 		#but for this, it's just utilizing left and right	
 	var direction = Input.get_vector("left", "right", "up", "down")
-	velocity = direction * speed 
+	if direction == Vector2(1,0) or direction == Vector2 (-1,0)or direction == Vector2 (0,0) :
+		velocity = direction * speed 
+		
 	#The player presses the button to lower the claw, atm this is Space Bar
 	if Input.is_action_pressed("grab"):
 		state = States.GRAB
@@ -39,15 +41,34 @@ func grab():
 		velocity = Vector2(0,0)
 		craneTexture =load('res://Assets_Alvin/Sprites/closed_crane.png')
 		$CraneSprite.texture = craneTexture
-	#TO DO: The claw picks up the toy and has them as its children
 		state = States.RETURN
 func returnClaw():
+	var netWeight = 0
+	#If the claw has any toys, their net weight is added 
+		#together for the drop chance
+	if $"Toy Holder".get_child_count() > 0:
+		for n in $"Toy Holder".get_child_count():
+			netWeight += get_node($"Toy Holder".get_child(n).get_path()).toyWieght
+	
+	
+	
+	
+	
+	#TO DO Random Drop Timer put here, based on some amount of time and weight, 
+		#a random chance to drop. Ex: 40 Weight = 40% chance to drop
+	
+	
+	
+	
+	
 	#The claw first moves back to the top, then back to the left side
 		#The claw then returns to the open sprite
 	if position.y > 50:
 		velocity = Vector2(0,-1) * speed
+		
 	elif position.x > 50:
 		velocity = Vector2(-1,0) * speed
+		
 	else:
 		craneTexture = openClaw
 		$CraneSprite.texture = craneTexture
