@@ -11,10 +11,7 @@ size = Vector2(1168.5, 20)
 script = ExtResource("1_52bq2")
 
 [node name="TestToy" parent="." instance=ExtResource("2_02q7i")]
-position = Vector2(386, 396)
-
-[node name="TestToy2" parent="." instance=ExtResource("2_02q7i")]
-position = Vector2(754, 404)
+position = Vector2(341, 388)
 
 [node name="Crane" parent="." instance=ExtResource("1_4g2d3")]
 
@@ -23,5 +20,8 @@ position = Vector2(754, 404)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(580.75, 637)
 shape = SubResource("RectangleShape2D_52bq2")
+
+[node name="TestToy2" parent="." instance=ExtResource("2_02q7i")]
+position = Vector2(770, 391)
 
 [connection signal="dropToy" from="Crane" to="TestToy" method="_on_crane_drop_toy"]

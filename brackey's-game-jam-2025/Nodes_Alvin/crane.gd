@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 		grab()
 	elif state == States.RETURN:
 		returnClaw()
-	move_and_slide()	
+	move_and_slide()
 	
 	#Used to test a toy dropping
 	if Input.is_action_pressed("debug_drop"):
@@ -55,6 +55,7 @@ func returnClaw():
 		droptoy()
 		state = States.MOVE
 func droptoy():
-	#The claw drops the toy(s). 
+	#The claw drops the toy(s)
 	for n in $"Toy Holder".get_child_count():
-		dropToy.emit($"Toy Holder".get_child(n))
+		#dropToy.emit($"Toy Holder".get_child(n))
+		dropToy.emit($"Toy Holder".get_child(0))
