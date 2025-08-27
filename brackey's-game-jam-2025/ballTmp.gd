@@ -1,5 +1,2 @@
 extends RigidBody2D
-func _init() -> void:
-	var toyWieght = 20
-	print(toyWieght)
-	
+var toyWieght = 20
