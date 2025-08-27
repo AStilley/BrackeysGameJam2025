@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://clmbc2vt5mjd"]
 
-[ext_resource type="PackedScene" uid="uid://c6ao1ppbtytcg" path="res://Ball Template.tscn" id="1_qjk3j"]
-[ext_resource type="Script" uid="uid://c5wqia1i2xeug" path="res://Main.gd" id="1_yg0fj"]
-[ext_resource type="Script" uid="uid://o5bnob70e001" path="res://progress_bar.gd" id="2_3yhg8"]
-[ext_resource type="Texture2D" uid="uid://cuf40glimnv8e" path="res://icon.svg" id="2_gfthn"]
+[ext_resource type="PackedScene" uid="uid://c6ao1ppbtytcg" path="res://Robert trash pile/Ball Template.tscn" id="1_qjk3j"]
+[ext_resource type="Script" uid="uid://c5wqia1i2xeug" path="res://Robert trash pile/Main.gd" id="1_yg0fj"]
+[ext_resource type="Script" uid="uid://o5bnob70e001" path="res://Robert trash pile/progress_bar.gd" id="2_3yhg8"]
+[ext_resource type="Texture2D" uid="uid://cuf40glimnv8e" path="res://Robert trash pile/icon.svg" id="2_gfthn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjk3j"]
 size = Vector2(48.5, 653)
@@ -21,6 +21,13 @@ size = Vector2(69.1973, 33.7213)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_yg0fj")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 861.0
+offset_top = 64.0
+offset_right = 962.0
+offset_bottom = 141.0
+script = ExtResource("2_3yhg8")
 
 [node name="leftWall" type="StaticBody2D" parent="."]
 position = Vector2(0, 34)
@@ -55,13 +62,6 @@ shape = SubResource("RectangleShape2D_k4ews")
 [node name="detectArea" type="Area2D" parent="."]
 position = Vector2(962, 555)
 
-[node name="ProgressBar" type="ProgressBar" parent="detectArea"]
-offset_left = 307.0
-offset_top = -226.0
-offset_right = 408.0
-offset_bottom = -149.0
-script = ExtResource("2_3yhg8")
-
 [node name="Sprite2D" type="Sprite2D" parent="detectArea"]
 position = Vector2(-0.999878, -0.999969)
 scale = Vector2(0.492187, 0.511719)
@@ -75,4 +75,5 @@ shape = SubResource("RectangleShape2D_bj8af")
 position = Vector2(239, 73)
 freeze_mode = 1
 
-[connection signal="body_entered" from="detectArea" to="detectArea" method="_on_body_entered"]
+[connection signal="ProgressChange" from="." to="." method="_on_progress_change"]
+[connection signal="body_entered" from="detectArea" to="." method="_on_detect_area_body_entered"]
