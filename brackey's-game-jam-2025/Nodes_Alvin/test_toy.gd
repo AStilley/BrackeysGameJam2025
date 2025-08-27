@@ -6,7 +6,7 @@ var gravitySwitch = true
 @export var prize = false
 
 var toyWieght = 20
-
+#TO DO Add toyType, toySize, 
 
 func _ready() -> void:
 	originalParent = self.get_parent()

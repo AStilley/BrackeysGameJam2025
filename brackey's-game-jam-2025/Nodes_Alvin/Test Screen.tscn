@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://clmbc2vt5mjd"]
 
-[ext_resource type="Script" uid="uid://c5wqia1i2xeug" path="res://Robert trash pile/Main.gd" id="1_yg0fj"]
-[ext_resource type="Script" uid="uid://o5bnob70e001" path="res://Robert trash pile/progress_bar.gd" id="2_3yhg8"]
+[ext_resource type="Script" uid="uid://c5wqia1i2xeug" path="res://Nodes_Alvin/Main.gd" id="1_yg0fj"]
+[ext_resource type="Script" uid="uid://o5bnob70e001" path="res://Nodes_Alvin/progress_bar.gd" id="2_3yhg8"]
 [ext_resource type="Texture2D" uid="uid://cuf40glimnv8e" path="res://Robert trash pile/icon.svg" id="2_gfthn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bj8af"]
