@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://tbwsqp152n0e"]
+
+[ext_resource type="Texture2D" uid="uid://cxnh6tgtsfwyc" path="res://Assets_Alvin/Sprites/Cloud.png" id="1_3by11"]
+[ext_resource type="Script" uid="uid://cg7ejih0cp36r" path="res://Nodes_Alvin/test_toy - Copy.gd" id="1_gysx4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2nmi"]
+size = Vector2(151, 82)
+
+[node name="RigidToy" type="RigidBody2D" groups=["Toy"]]
+script = ExtResource("1_gysx4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -6)
+shape = SubResource("RectangleShape2D_a2nmi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("1_3by11")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
