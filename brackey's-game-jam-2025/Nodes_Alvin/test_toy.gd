@@ -4,14 +4,20 @@ var velocity = Vector2()
 var originalParent
 var gravitySwitch = true
 @export var prize = false
+
+var toyWieght = 20
+
+
 func _ready() -> void:
 	originalParent = self.get_parent()
 func _physics_process(delta: float) -> void:
 	#if the toy is high up and not grabbed, it drops
-	if global_position.y < 550 and !self.get_parent().is_in_group("player"):
+	if global_position.y < 600 and !self.get_parent().is_in_group("player"):
 		if gravitySwitch:
 			velocity.y += gravity * delta 
 			global_position.y += velocity.y * delta
+	else:
+		velocity.y = 0
 func _on_body_entered(body: Node2D) -> void:
 	print("Body Entered")
 	print(body.name)
@@ -42,4 +48,5 @@ func _on_crane_drop_toy(toy) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	gravitySwitch = false # Replace with function body.
+	if !area.is_in_group("Detect"):
+		gravitySwitch = false # Replace with function body.

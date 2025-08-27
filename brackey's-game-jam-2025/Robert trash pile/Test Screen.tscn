@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://clmbc2vt5mjd"]
+
+[ext_resource type="Script" uid="uid://c5wqia1i2xeug" path="res://Robert trash pile/Main.gd" id="1_yg0fj"]
+[ext_resource type="Script" uid="uid://o5bnob70e001" path="res://Robert trash pile/progress_bar.gd" id="2_3yhg8"]
+[ext_resource type="Texture2D" uid="uid://cuf40glimnv8e" path="res://Robert trash pile/icon.svg" id="2_gfthn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bj8af"]
+size = Vector2(69.1973, 33.7213)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(67, 596)
+script = ExtResource("1_yg0fj")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 893.0
+offset_top = -559.0
+offset_right = 994.0
+offset_bottom = -482.0
+script = ExtResource("2_3yhg8")
+
+[node name="detectArea" type="Area2D" parent="." groups=["Detect"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="detectArea"]
+position = Vector2(-0.999878, -0.999969)
+scale = Vector2(0.492187, 0.511719)
+texture = ExtResource("2_gfthn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectArea"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_bj8af")
+
+[connection signal="ProgressChange" from="." to="." method="_on_progress_change"]
+[connection signal="area_entered" from="detectArea" to="." method="_on_detect_area_area_entered"]
+[connection signal="body_entered" from="detectArea" to="." method="_on_detect_area_body_entered"]

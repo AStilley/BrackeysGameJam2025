@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy486p43w4iie"]
+[gd_scene load_steps=6 format=3 uid="uid://cy486p43w4iie"]
 
 [ext_resource type="PackedScene" uid="uid://cnp3eciqdb20r" path="res://Nodes_Alvin/crane.tscn" id="1_4g2d3"]
 [ext_resource type="Script" uid="uid://ddihn68dwi2si" path="res://Nodes_Alvin/crane_machine_level.gd" id="1_52bq2"]
 [ext_resource type="PackedScene" uid="uid://bj7kdb2imyfyt" path="res://Nodes_Alvin/test_toy.tscn" id="2_02q7i"]
+[ext_resource type="PackedScene" uid="uid://clmbc2vt5mjd" path="res://Robert trash pile/Test Screen.tscn" id="4_7bdnx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52bq2"]
 size = Vector2(1168.5, 20)
@@ -11,7 +12,7 @@ size = Vector2(1168.5, 20)
 script = ExtResource("1_52bq2")
 
 [node name="TestToy" parent="." instance=ExtResource("2_02q7i")]
-position = Vector2(341, 388)
+position = Vector2(408, 556)
 
 [node name="Crane" parent="." instance=ExtResource("1_4g2d3")]
 
@@ -22,6 +23,8 @@ position = Vector2(580.75, 637)
 shape = SubResource("RectangleShape2D_52bq2")
 
 [node name="TestToy2" parent="." instance=ExtResource("2_02q7i")]
-position = Vector2(770, 391)
+position = Vector2(519, 553)
+
+[node name="Node2D" parent="." instance=ExtResource("4_7bdnx")]
 
 [connection signal="dropToy" from="Crane" to="TestToy" method="_on_crane_drop_toy"]
