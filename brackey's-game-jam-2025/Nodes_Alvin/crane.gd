@@ -63,16 +63,6 @@ func returnClaw():
 		print("dropped at weight")
 		droptoy()
 	
-	
-	
-	
-	#TO DO Random Drop Timer put here, based on some amount of time and weight, 
-		#a random chance to drop. Ex: 40 Weight = 40% chance to drop
-	
-	
-	
-	
-	
 	#The claw first moves back to the top, then back to the left side
 		#The claw then returns to the open sprite
 	if position.y > 50:

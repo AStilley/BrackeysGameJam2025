@@ -13,12 +13,10 @@ script = ExtResource("1_52bq2")
 
 [node name="TestToy" parent="." instance=ExtResource("2_02q7i")]
 position = Vector2(321, 291)
-prize = false
 
 [node name="TestToy2" parent="." instance=ExtResource("2_02q7i")]
 position = Vector2(889, 245)
 scale = Vector2(0.25, 0.25)
-prize = false
 
 [node name="Crane" parent="." instance=ExtResource("1_4g2d3")]
 

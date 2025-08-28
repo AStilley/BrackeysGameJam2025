@@ -5,6 +5,7 @@ var originalParent
 var gravitySwitch = true
 @export var prize = false
 
+#TODO toyWeight based on type and size
 var toyWieght = 20
 
 var toyTypeList = ["Bird", "Cat", "Dog", "Frog", "Gorilla", "Monkey"]
@@ -134,10 +135,13 @@ func setToy(type, size, color):
 	match size:
 		"Small":
 			scale = Vector2(0.125,0.125)
+			
 		"Medium":
 			scale = Vector2(0.25,0.25)
+			
 		"Large":
 			scale = Vector2(0.5,0.5)
+			
 	
 func _on_area_entered(area: Area2D) -> void:
 	if !area.is_in_group("Detect"):
