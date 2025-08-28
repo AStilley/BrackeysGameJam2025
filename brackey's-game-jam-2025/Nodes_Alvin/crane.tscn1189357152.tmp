@@ -9,6 +9,7 @@ size = Vector2(71, 30)
 [node name="Crane" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_hqixi")
 speed = 250
+stopHeight = null
 
 [node name="Toy Holder" type="Sprite2D" parent="." groups=["player"]]
 
@@ -22,7 +23,6 @@ shape = SubResource("RectangleShape2D_kyxik")
 one_way_collision = true
 
 [node name="Timer" type="Timer" parent="."]
-process_callback = 0
 
 [connection signal="ready" from="Toy Holder" to="." method="_on_toy_holder_ready"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

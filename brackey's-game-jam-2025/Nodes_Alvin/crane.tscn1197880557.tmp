@@ -22,7 +22,6 @@ shape = SubResource("RectangleShape2D_kyxik")
 one_way_collision = true
 
 [node name="Timer" type="Timer" parent="."]
-process_callback = 0
 
 [connection signal="ready" from="Toy Holder" to="." method="_on_toy_holder_ready"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
