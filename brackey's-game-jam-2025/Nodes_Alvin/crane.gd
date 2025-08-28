@@ -7,6 +7,10 @@ var craneTexture
 signal dropToy(Node)
 @export var openClaw = load('res://Assets_Alvin/Sprites/open_crane.png')
 @export var closeClaw = load('res://Assets_Alvin/Sprites/closed_crane.png')
+@onready var timer: Timer = $Timer
+var netWeight = 0
+var randomNum = 101
+
 func _ready() -> void:
 	position = Vector2(50,50)
 func _process(delta: float) -> void:	
@@ -43,13 +47,21 @@ func grab():
 		$CraneSprite.texture = craneTexture
 		state = States.RETURN
 func returnClaw():
-	var netWeight = 0
 	#If the claw has any toys, their net weight is added 
 		#together for the drop chance
-	if $"Toy Holder".get_child_count() > 0:
+	if $"Toy Holder".get_child_count() > 0 and randomNum == 101:
+		randomNum = 102
 		for n in $"Toy Holder".get_child_count():
 			netWeight += get_node($"Toy Holder".get_child(n).get_path()).toyWieght
-	
+		print("start Timer")
+		timer.start(1)
+		timer.set_paused(false)
+
+	#Random Drop Timer, based on some amount of time and weight, 
+		#a random chance to drop. Ex: 40 Weight = 40% chance to drop
+	if randomNum < netWeight:
+		print("dropped at weight")
+		droptoy()
 	
 	
 	
@@ -77,6 +89,14 @@ func returnClaw():
 		state = States.MOVE
 func droptoy():
 	#The claw drops the toy(s)
+	timer.stop()
 	for n in $"Toy Holder".get_child_count():
 		#dropToy.emit($"Toy Holder".get_child(n))
 		dropToy.emit($"Toy Holder".get_child(0))
+	netWeight = 0
+	randomNum = 101
+func _on_timer_timeout() -> void:
+	randomNum = randi_range(1, 100)
+	print("One Second Passed")
+	print(randomNum)
+	pass # Replace with function body.

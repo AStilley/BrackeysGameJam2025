@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://clmbc2vt5mjd"]
+[gd_scene load_steps=5 format=3 uid="uid://nbwnpde4n51i"]
 
 [ext_resource type="Script" uid="uid://c5wqia1i2xeug" path="res://Nodes_Alvin/Main.gd" id="1_yg0fj"]
 [ext_resource type="Script" uid="uid://o5bnob70e001" path="res://Nodes_Alvin/progress_bar.gd" id="2_3yhg8"]

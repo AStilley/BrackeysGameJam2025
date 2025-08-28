@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuu7ccn6qw1v3"]
+
+[ext_resource type="Texture2D" uid="uid://rnh7rgyvgs6h" path="res://Assets_Alvin/Sprites/Prize counter.png" id="1_pr5om"]
+
+[node name="PrizeCorner" type="Node2D"]
+
+[node name="TempImage" type="Sprite2D" parent="."]
+position = Vector2(605, 332)
+texture = ExtResource("1_pr5om")

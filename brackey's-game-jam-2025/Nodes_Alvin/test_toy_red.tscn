@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmqw0i7rdgvi"]
+[gd_scene load_steps=4 format=3 uid="uid://y4l810wf6eil"]
 
 [ext_resource type="Script" uid="uid://dhqp1m7l148jg" path="res://Nodes_Alvin/test_toy.gd" id="1_ssufh"]
 [ext_resource type="Texture2D" uid="uid://qcr184upnv0k" path="res://Assets_Alvin/Sprites/Toy Sprites/toy-frog/toy-frog-red.png" id="2_2fp5d"]
@@ -12,10 +12,11 @@ scale = Vector2(0.25, 0.25)
 script = ExtResource("1_ssufh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -56)
 texture = ExtResource("2_2fp5d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, -4)
+position = Vector2(-3, -60)
 shape = SubResource("CapsuleShape2D_a2nmi")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
