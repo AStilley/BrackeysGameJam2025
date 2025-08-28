@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://cy486p43w4iie"]
+=======
+[gd_scene load_steps=8 format=3 uid="uid://cy486p43w4iie"]
 
 [ext_resource type="PackedScene" uid="uid://cnp3eciqdb20r" path="res://Nodes_Alvin/crane.tscn" id="1_4g2d3"]
 [ext_resource type="Script" uid="uid://ddihn68dwi2si" path="res://Nodes_Alvin/crane_machine_level.gd" id="1_52bq2"]
 [ext_resource type="PackedScene" uid="uid://bj7kdb2imyfyt" path="res://Nodes_Alvin/test_toy.tscn" id="2_02q7i"]
-[ext_resource type="PackedScene" uid="uid://nbwnpde4n51i" path="res://Nodes_Alvin/Test Screen.tscn" id="4_7bdnx"]
-[ext_resource type="PackedScene" uid="uid://u2xpghormuv2" path="res://Nodes_Alvin/screen_transition_test.tscn" id="5_bassv"]
+=======
+[ext_resource type="PackedScene" uid="uid://clmbc2vt5mjd" path="res://Nodes_Alvin/Test Screen.tscn" id="4_7bdnx"]
+[ext_resource type="PackedScene" uid="uid://bmqw0i7rdgvi" path="res://Nodes_Alvin/test_toy_red.tscn" id="5_bassv"]
+[ext_resource type="Script" uid="uid://cp8367e7t2stv" path="res://Nodes_Alvin/test_toy_red.gd" id="6_kvvuc"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52bq2"]
 size = Vector2(1168.5, 20)
@@ -13,7 +17,7 @@ size = Vector2(1168.5, 20)
 script = ExtResource("1_52bq2")
 
 [node name="TestToy" parent="." instance=ExtResource("2_02q7i")]
-position = Vector2(408, 556)
+position = Vector2(408, 473)
 
 [node name="Crane" parent="." instance=ExtResource("1_4g2d3")]
 
@@ -23,12 +27,13 @@ position = Vector2(408, 556)
 position = Vector2(580.75, 637)
 shape = SubResource("RectangleShape2D_52bq2")
 
-[node name="TestToy2" parent="." instance=ExtResource("2_02q7i")]
-position = Vector2(724, 523)
-
-[node name="Node2D" parent="." instance=ExtResource("4_7bdnx")]
-
 [node name="ScreenTransitionTest" parent="." instance=ExtResource("5_bassv")]
 visible = false
+=======
+[node name="Node2D" parent="." instance=ExtResource("4_7bdnx")]
+
+[node name="TestToy2" parent="." instance=ExtResource("5_bassv")]
+position = Vector2(636, 491)
+script = ExtResource("6_kvvuc")
 
 [connection signal="dropToy" from="Crane" to="TestToy" method="_on_crane_drop_toy"]
