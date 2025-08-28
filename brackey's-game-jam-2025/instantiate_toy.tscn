@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc0blpivn3jf4"]
+
+[ext_resource type="PackedScene" uid="uid://bj7kdb2imyfyt" path="res://Nodes_Alvin/test_toy.tscn" id="1_ofba2"]
+
+[node name="InstantiateToy" type="Node2D"]
+
+[node name="TestToy" parent="." instance=ExtResource("1_ofba2")]

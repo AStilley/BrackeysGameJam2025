@@ -5,7 +5,19 @@ signal ProgressChange(n)
 @onready var y = 300
 @onready var x = -1000
 @onready var i = 1
-
+var toyTypeList = ["Bird", "Cat", "Dog", "Frog", "Gorilla", "Monkey"]
+var sizeTypeList = ["Small", "Medium", "Large"]
+var colorTypeList = ["Blue", "Green", "Purple", "Red", "Yellow"]
+var favType = toyTypeList.pick_random()
+var favSize = sizeTypeList.pick_random()
+var favColour = colorTypeList.pick_random()
+func _ready() -> void:
+	favType = toyTypeList.pick_random()
+	favSize = sizeTypeList.pick_random()
+	favColour = colorTypeList.pick_random()
+	print("Favorite Type: ", favType)
+	print("Favorite Size: ", favSize)
+	print("Favorite Color: ", favColour)
 func _on_progress_change(n):
 	$ProgressBar.value += n
 	#print($ProgressBar.value)
@@ -13,9 +25,10 @@ func _on_progress_change(n):
 func _on_detect_area_area_entered(area: Area2D) -> void:
 	
 	#Daughter's Favorites for the Level
-	var favType = "Bird"
-	var favSize = "Medium"
-	var favColour = "Red"
+	#var favType = "Bird"
+	#var favSize = "Medium"
+	#var favColour = "Red"
+
 	
 	var ball = get_node(area.get_path())
 	var totalScore = ball.toyWieght 

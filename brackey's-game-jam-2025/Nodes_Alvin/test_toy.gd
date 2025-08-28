@@ -6,16 +6,19 @@ var gravitySwitch = true
 @export var prize = false
 
 var toyWieght = 20
-var toyColour = "Blue"
-var toySize = "Large"
+
+var toyTypeList = ["Bird", "Cat", "Dog", "Frog", "Gorilla", "Monkey"]
+var sizeTypeList = ["Small", "Medium", "Large"]
+var colorTypeList = ["Blue", "Green", "Purple", "Red", "Yellow"]
+
 var toyType = "Bird"
-
-
-
-#TO DO Add toyType, toySize, 
+var toySize = "Large"
+var toyColour = "Blue"
+@onready var toy_sprite: Sprite2D = $ToySprite
 
 func _ready() -> void:
 	originalParent = self.get_parent()
+	setToy(toyTypeList.pick_random(),sizeTypeList.pick_random(),colorTypeList.pick_random())
 func _physics_process(delta: float) -> void:
 	#if the toy is high up and not grabbed, it drops
 	if global_position.y < 600 and !self.get_parent().is_in_group("player"):
@@ -51,8 +54,91 @@ func _on_crane_drop_toy(toy) -> void:
 		toy.global_position = globalPos
 		#print(get_parent())
 		toy.prize = false
-
-
+func setToy(type, size, color):
+	toyType = type
+	toySize = size
+	toyColour = color
+	match type:
+		"Bird":
+			match toyColour: 
+				"Blue":
+					toy_sprite.texture = load('res://Assets_Alvin/Sprites/Toy Sprites/toy-bird/toy-bird-bklue.png')
+				"Green":
+					toy_sprite.texture = load('res://Assets_Alvin/Sprites/Toy Sprites/toy-bird/toy-bird-green.png')
+				"Purple":
+					toy_sprite.texture = load('res://Assets_Alvin/Sprites/Toy Sprites/toy-bird/toy-bird-purple.png')
+				"Red":
+					toy_sprite.texture = load('res://Assets_Alvin/Sprites/Toy Sprites/toy-bird/toy-bird-red.png')
+				"Yellow":
+					toy_sprite.texture = load('res://Assets_Alvin/Sprites/Toy Sprites/toy-bird/toy-bird-yellow.png')													
+		"Cat":
+			match toyColour: 
+				"Blue":
+					toy_sprite.texture = load('res://Assets_Alvin/Sprites/Toy Sprites/toy-cat/toy-cat-blue.png')
+				"Green":
+					toy_sprite.texture = load('res://Assets_Alvin/Sprites/Toy Sprites/toy-cat/toy-cat-green.png')
+				"Purple":
+					toy_sprite.texture = load('res://Assets_Alvin/Sprites/Toy Sprites/toy-cat/toy-cat-purple.png')
+				"Red":
+					toy_sprite.texture = load('res://Assets_Alvin/Sprites/Toy Sprites/toy-cat/toy-cat-red.png')
+				"Yellow":
+					toy_sprite.texture = load('res://Assets_Alvin/Sprites/Toy Sprites/toy-cat/toy-cat-yellow.png')
+		"Dog":
+			match toyColour: 
+				"Blue":
+					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-dog/toy-dog-blue.png")
+				"Green":
+					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-dog/toy-dog-green.png")
+				"Purple":
+					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-dog/toy-dog-purple.png")
+				"Red":
+					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-dog/toy-dog-red.png")
+				"Yellow":
+					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-dog/toy-dog-yellow.png")		
+		"Frog":
+			match toyColour: 
+				"Blue":
+					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-frog/toy-frog-blue.png")
+				"Green":
+					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-frog/toy-frog-green.png")
+				"Purple":
+					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-frog/toy-frog-purple.png")
+				"Red":
+					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-frog/toy-frog-red.png")
+				"Yellow":
+					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-frog/toy-frog-yellow.png")		
+		"Gorilla":
+			match toyColour: 
+				"Blue":
+					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-gorilla/toy-gorilla-blue.png")
+				"Green":
+					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-gorilla/toy-gorilla-green.png")
+				"Purple":
+					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-gorilla/toy-gorilla-purple.png")
+				"Red":
+					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-gorilla/toy-gorilla-red.png")	
+				"Yellow":
+					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-gorilla/toy-gorilla-yellow.png")	
+		"Monkey":
+			match toyColour: 
+				"Blue":
+					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-monkey/Toy-monkey-blue.png")
+				"Green":
+					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-monkey/Toy-monkey-green.png")
+				"Purple":
+					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-monkey/Toy-monkey-purple.png")
+				"Red":
+					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-monkey/Toy-monkey-red.png")
+				"Yellow":
+					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-monkey/Toy-monkey-yellow.png")	
+	match size:
+		"Small":
+			scale = Vector2(0.125,0.125)
+		"Medium":
+			scale = Vector2(0.25,0.25)
+		"Large":
+			scale = Vector2(0.5,0.5)
+	
 func _on_area_entered(area: Area2D) -> void:
 	if !area.is_in_group("Detect"):
 		gravitySwitch = false # Replace with function body.
