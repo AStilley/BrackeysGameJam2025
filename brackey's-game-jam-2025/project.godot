@@ -43,3 +43,7 @@ up={
 "deadzone": 0.2,
 "events": []
 }
+down={
+"deadzone": 0.2,
+"events": []
+}

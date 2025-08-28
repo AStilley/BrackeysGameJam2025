@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coendbjx1hwww"
-path="res://.godot/imported/toy-bird-bklue.png-360ef1ed4751b5db5bf611b10a9e1604.ctex"
+uid="uid://oci8f4x2h7hk"
+path="res://.godot/imported/toy-bird-purple.png-0eb2c6c762c25c6d6ec38f1aa9135574.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets_Alvin/Sprites/toy-bird-bklue.png"
-dest_files=["res://.godot/imported/toy-bird-bklue.png-360ef1ed4751b5db5bf611b10a9e1604.ctex"]
+source_file="res://Assets_Alvin/Sprites/Toy Sprites/toy-bird/toy-bird-purple.png"
+dest_files=["res://.godot/imported/toy-bird-purple.png-0eb2c6c762c25c6d6ec38f1aa9135574.ctex"]
 
 [params]
 
