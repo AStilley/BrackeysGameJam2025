@@ -3,16 +3,22 @@ extends CharacterBody2D
 enum States {MOVE, GRAB, RETURN}
 var state: States = States.MOVE
 @export var stopHeight := 550
-var craneTexture
+var craneTexture 
 signal dropToy(Node)
-@export var openClaw = load('res://Assets_Alvin/Sprites/open_crane.png')
-@export var closeClaw = load('res://Assets_Alvin/Sprites/closed_crane.png')
+var openClaw 
+var closeClaw
 @onready var timer: Timer = $Timer
 var netWeight = 0
 var randomNum = 101
-
+var craneType = ["Default","Gold", "Sticky"]
+var currentCraneType
+#Default is Default, Gold gives double the points, Sticky halves the weight
 func _ready() -> void:
 	position = Vector2(50,50)
+	currentCraneType = craneType[0]
+	print(currentCraneType)
+	checkClawType()
+	craneTexture = openClaw
 func _process(delta: float) -> void:	
 	if state == States.MOVE:
 		move()
@@ -22,9 +28,20 @@ func _process(delta: float) -> void:
 		returnClaw()
 	move_and_slide()
 	
+	checkClawType()
 	#Used to test a toy dropping
 	if Input.is_action_pressed("debug_drop"):
 		droptoy()
+	if Input.is_action_just_pressed("claw_cycle"):
+		print("Change claw")
+		match currentCraneType:
+			"Default":
+				currentCraneType = "Gold"
+			"Gold":
+				currentCraneType = "Sticky"
+			"Sticky":
+				currentCraneType = "Default"
+		
 func move():
 	#Player has control of the claw, moving it left or right
 	#this usually allows the player to move in all cardinal directions
@@ -44,7 +61,7 @@ func grab():
 	#The claw stops then changes to the closed sprite then moves to the return state
 		velocity = Vector2(0,0)
 		craneTexture =load('res://Assets_Alvin/Sprites/closed_crane.png')
-		$CraneSprite.texture = craneTexture
+
 		state = States.RETURN
 func returnClaw():
 	#If the claw has any toys, their net weight is added 
@@ -53,6 +70,8 @@ func returnClaw():
 		randomNum = 102
 		for n in $"Toy Holder".get_child_count():
 			netWeight += get_node($"Toy Holder".get_child(n).get_path()).toyWieght
+		if currentCraneType == "Sticky":
+			netWeight /= 2
 		print("start Timer")
 		timer.start(1)
 		timer.set_paused(false)
@@ -81,7 +100,6 @@ func droptoy():
 	#The claw drops the toy(s)
 	timer.stop()
 	for n in $"Toy Holder".get_child_count():
-		#dropToy.emit($"Toy Holder".get_child(n))
 		dropToy.emit($"Toy Holder".get_child(0))
 	netWeight = 0
 	randomNum = 101
@@ -90,3 +108,19 @@ func _on_timer_timeout() -> void:
 	print("One Second Passed")
 	print(randomNum)
 	pass # Replace with function body.
+func checkClawType():
+	match currentCraneType:
+		"Default":
+			openClaw = load('res://Assets_Alvin/Sprites/open_crane.png')
+			closeClaw = load('res://Assets_Alvin/Sprites/closed_crane.png')
+		"Gold":
+			openClaw = load("res://Assets_Alvin/Sprites/open_crane_gold.png")
+			closeClaw = load("res://Assets_Alvin/Sprites/closed_crane_gold.png")
+		"Sticky":
+			openClaw = load("res://Assets_Alvin/Sprites/open_crane_sticky.png")
+			closeClaw = load("res://Assets_Alvin/Sprites/closed_crane_sticky.png")
+	if $"Toy Holder".get_child_count() == 0:
+		craneTexture = openClaw
+	else:
+		craneTexture = closeClaw
+	$CraneSprite.texture = craneTexture

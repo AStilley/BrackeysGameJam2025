@@ -43,7 +43,12 @@ func _on_detect_area_area_entered(area: Area2D) -> void:
 	if ball.toyColour == favColour:
 		totalScore += 5
 		
-	ProgressChange.emit(totalScore)
+	var crane = get_node($"../Crane".get_path())
+	
+	if crane.currentCraneType == "Gold":
+		ProgressChange.emit(totalScore*2)
+	else:
+		ProgressChange.emit(totalScore)
 	
 	
 	#Moves Toy to Score Area, Maybe uneeded?

@@ -1,7 +1,7 @@
 extends Node2D
 @onready var crane_machine_level: Node2D = $CraneMachineLevel
 @onready var prize_corner: Node2D = $PrizeCorner
-
+var tokens
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,7 +10,7 @@ func _ready() -> void:
 	crane_machine_level.set_process(true)
 	prize_corner.visible = false
 	prize_corner.set_process(false)
-
+	reset_tokens()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -35,5 +35,6 @@ func prizeCornerOff():
 	prize_corner.visible = false
 	prize_corner.set_process(false)	
 	
-	
+func reset_tokens():
+	tokens = 10
 	
