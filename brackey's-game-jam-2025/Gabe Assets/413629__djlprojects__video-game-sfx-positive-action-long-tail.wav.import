@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c15j6jx0lv6am"
+path="res://.godot/imported/413629__djlprojects__video-game-sfx-positive-action-long-tail.wav-78e106cb893b43f79fb495c57519ed76.sample"
+
+[deps]
+
+source_file="res://Gabe Assets/413629__djlprojects__video-game-sfx-positive-action-long-tail.wav"
+dest_files=["res://.godot/imported/413629__djlprojects__video-game-sfx-positive-action-long-tail.wav-78e106cb893b43f79fb495c57519ed76.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

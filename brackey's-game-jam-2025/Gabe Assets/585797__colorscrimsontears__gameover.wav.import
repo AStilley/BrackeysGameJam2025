@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bfs6caogwefm4"
+path="res://.godot/imported/585797__colorscrimsontears__gameover.wav-53d6da31e8e274d02532f57376b4123c.sample"
+
+[deps]
+
+source_file="res://Gabe Assets/585797__colorscrimsontears__gameover.wav"
+dest_files=["res://.godot/imported/585797__colorscrimsontears__gameover.wav-53d6da31e8e274d02532f57376b4123c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
