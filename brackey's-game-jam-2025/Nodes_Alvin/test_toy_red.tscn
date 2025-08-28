@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bj7kdb2imyfyt"]
+[gd_scene load_steps=4 format=3 uid="uid://bmqw0i7rdgvi"]
 
-[ext_resource type="Script" uid="uid://dhqp1m7l148jg" path="res://Nodes_Alvin/test_toy.gd" id="1_wi7f4"]
-[ext_resource type="Texture2D" uid="uid://coendbjx1hwww" path="res://Assets_Alvin/Sprites/Toy Sprites/toy-bird/toy-bird-bklue.png" id="2_a2nmi"]
+[ext_resource type="Script" uid="uid://dhqp1m7l148jg" path="res://Nodes_Alvin/test_toy.gd" id="1_ssufh"]
+[ext_resource type="Texture2D" uid="uid://qcr184upnv0k" path="res://Assets_Alvin/Sprites/Toy Sprites/toy-frog/toy-frog-red.png" id="2_2fp5d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a2nmi"]
 radius = 194.0
 height = 508.0
 
 [node name="TestToy" type="Area2D" groups=["Toy"]]
-scale = Vector2(0.5, 0.5)
-script = ExtResource("1_wi7f4")
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_ssufh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_a2nmi")
+texture = ExtResource("2_2fp5d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -4)

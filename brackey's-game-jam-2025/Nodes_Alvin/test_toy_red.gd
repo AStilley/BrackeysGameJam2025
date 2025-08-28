@@ -6,9 +6,9 @@ var gravitySwitch = true
 @export var prize = false
 
 var toyWieght = 20
-var toyColour = "Blue"
-var toySize = "Large"
-var toyType = "Bird"
+var toyColour = "Red"
+var toySize = "Medium"
+var toyType = "Frog"
 
 
 
