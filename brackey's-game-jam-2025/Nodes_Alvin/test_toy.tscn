@@ -11,7 +11,7 @@ height = 508.0
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_wi7f4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="ToySprite" type="Sprite2D" parent="."]
 position = Vector2(-2, -154)
 texture = ExtResource("2_a2nmi")
 
