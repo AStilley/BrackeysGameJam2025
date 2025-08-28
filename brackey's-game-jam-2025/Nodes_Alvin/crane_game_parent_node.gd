@@ -2,6 +2,7 @@ extends Node2D
 @onready var crane_machine_level: Node2D = $CraneMachineLevel
 @onready var prize_corner: Node2D = $PrizeCorner
 var tokens
+signal tokenUse
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -12,6 +12,8 @@ var netWeight = 0
 var randomNum = 101
 var craneType = ["Default","Gold", "Sticky"]
 var currentCraneType
+var tokenUse = true
+var tokens 
 #Default is Default, Gold gives double the points, Sticky halves the weight
 func _ready() -> void:
 	position = Vector2(50,50)
@@ -19,6 +21,7 @@ func _ready() -> void:
 	print(currentCraneType)
 	checkClawType()
 	craneTexture = openClaw
+	reset_tokens()
 func _process(delta: float) -> void:	
 	if state == States.MOVE:
 		move()
@@ -46,13 +49,18 @@ func move():
 	#Player has control of the claw, moving it left or right
 	#this usually allows the player to move in all cardinal directions
 		#but for this, it's just utilizing left and right	
-	var direction = Input.get_vector("left", "right", "up", "down")
-	if direction == Vector2(1,0) or direction == Vector2 (-1,0)or direction == Vector2 (0,0) :
-		velocity = direction * speed 
-		
-	#The player presses the button to lower the claw, atm this is Space Bar
-	if Input.is_action_pressed("grab"):
-		state = States.GRAB
+
+	if tokens >= 0:
+		var direction = Input.get_vector("left", "right", "up", "down")
+		if direction == Vector2(1,0) or direction == Vector2 (-1,0)or direction == Vector2 (0,0) :
+			velocity = direction * speed 
+			if tokenUse:
+				tokens -= 1
+				tokenUse = false
+				print("Tokens: ", tokens)
+		#The player presses the button to lower the claw, atm this is Space Bar
+		if Input.is_action_pressed("grab"):
+			state = States.GRAB
 func grab():
 	#The claw lowers itself down from where the player left the claw
 	if position.y < stopHeight and $"Toy Holder".get_child_count() == 0:
@@ -61,11 +69,11 @@ func grab():
 	#The claw stops then changes to the closed sprite then moves to the return state
 		velocity = Vector2(0,0)
 		craneTexture =load('res://Assets_Alvin/Sprites/closed_crane.png')
-
 		state = States.RETURN
 func returnClaw():
 	#If the claw has any toys, their net weight is added 
 		#together for the drop chance
+	tokenUse = true
 	if $"Toy Holder".get_child_count() > 0 and randomNum == 101:
 		randomNum = 102
 		for n in $"Toy Holder".get_child_count():
@@ -124,3 +132,5 @@ func checkClawType():
 	else:
 		craneTexture = closeClaw
 	$CraneSprite.texture = craneTexture
+func reset_tokens():
+	tokens = 10
