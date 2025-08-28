@@ -7,6 +7,10 @@ var craneTexture
 signal dropToy(Node)
 @export var openClaw = load('res://Assets_Alvin/Sprites/open_crane.png')
 @export var closeClaw = load('res://Assets_Alvin/Sprites/closed_crane.png')
+@onready var timer: Timer = $Timer
+var netWeight = 0
+var randomNum = 101
+
 func _ready() -> void:
 	position = Vector2(50,50)
 func _process(delta: float) -> void:	
@@ -19,7 +23,8 @@ func _process(delta: float) -> void:
 	move_and_slide()
 	
 	#Used to test a toy dropping
-	if Input.is_action_pressed("debug_drop"):
+	if Input.is_action_just_pressed("debug_drop"):
+		print("dropped by debug")
 		droptoy()
 func move():
 	#Player has control of the claw, moving it left or right
@@ -30,7 +35,7 @@ func move():
 		velocity = direction * speed 
 		
 	#The player presses the button to lower the claw, atm this is Space Bar
-	if Input.is_action_pressed("grab"):
+	if Input.is_action_just_pressed("grab"):
 		state = States.GRAB
 func grab():
 	#The claw lowers itself down from where the player left the claw
@@ -43,40 +48,49 @@ func grab():
 		$CraneSprite.texture = craneTexture
 		state = States.RETURN
 func returnClaw():
-	var netWeight = 0
+
 	#If the claw has any toys, their net weight is added 
 		#together for the drop chance
-	if $"Toy Holder".get_child_count() > 0:
+	if $"Toy Holder".get_child_count() > 0 and randomNum == 101:
+		randomNum = 102
 		for n in $"Toy Holder".get_child_count():
 			netWeight += get_node($"Toy Holder".get_child(n).get_path()).toyWieght
-	
-	
-	
-	
-	
-	#TO DO Random Drop Timer put here, based on some amount of time and weight, 
+		print("start Timer")
+		timer.start(1)
+		timer.set_paused(false)
+
+	#Random Drop Timer, based on some amount of time and weight, 
 		#a random chance to drop. Ex: 40 Weight = 40% chance to drop
-	
-	
-	
-	
+	if randomNum < netWeight:
+		print("dropped at weight")
+		droptoy()
+
 	
 	#The claw first moves back to the top, then back to the left side
 		#The claw then returns to the open sprite
 	if position.y > 50:
 		velocity = Vector2(0,-1) * speed
-		
 	elif position.x > 50:
 		velocity = Vector2(-1,0) * speed
-		
 	else:
 		craneTexture = openClaw
 		$CraneSprite.texture = craneTexture
 		#The player resumes control of the claw
+		print("Dropped at prize chute")
 		droptoy()
 		state = States.MOVE
 func droptoy():
 	#The claw drops the toy(s)
+	timer.stop()
 	for n in $"Toy Holder".get_child_count():
 		#dropToy.emit($"Toy Holder".get_child(n))
 		dropToy.emit($"Toy Holder".get_child(0))
+	netWeight = 0
+	randomNum = 101
+		
+
+func _on_timer_timeout() -> void:
+	randomNum = randi_range(1, 100)
+	print("One Second Passed")
+	print(randomNum)
+	pass # Replace with function body.

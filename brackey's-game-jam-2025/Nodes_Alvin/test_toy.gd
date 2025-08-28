@@ -19,11 +19,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y = 0
 func _on_body_entered(body: Node2D) -> void:
-	print("Body Entered")
-	print(body.name)
+	#print(body.name)
 	gravitySwitch = true
 	#if the claw touches it, it is grabbed
 	if body.is_in_group("player") and !prize and position.y > 300:
+		print("Body Entered")
 		prize = true
 		#Stores the global position it's in, otherwise, it will teleport 
 			#and be messy
