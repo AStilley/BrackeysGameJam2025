@@ -11,6 +11,8 @@ var closeClaw
 
 var craneLeft = 150
 
+signal gameOver
+
 @onready var timer: Timer = $Timer
 var netWeight = 0
 var randomNum = 101
@@ -18,6 +20,9 @@ var craneType = ["Default","Gold", "Sticky"]
 var currentCraneType
 var tokenUse = true
 var tokens 
+
+var isGameOver = false
+
 #Default is Default, Gold gives double the points, Sticky halves the weight
 func _ready() -> void:
 	position = Vector2(160,50)
@@ -26,7 +31,7 @@ func _ready() -> void:
 	checkClawType()
 	craneTexture = idleClaw
 	reset_tokens()
-func _process(delta: float) -> void:	
+func _process(_delta: float) -> void:	
 	if state == States.MOVE:
 		move()
 	elif state == States.GRAB:
@@ -34,11 +39,12 @@ func _process(delta: float) -> void:
 	elif state == States.RETURN:
 		returnClaw()
 	move_and_slide()
-	
 	checkClawType()
-	#Used to test a toy dropping
+	
+	#debug tool
 	if Input.is_action_pressed("debug_drop"):
 		droptoy()
+	#debug tool
 	if Input.is_action_just_pressed("claw_cycle"):
 		print("Change claw")
 		match currentCraneType:
@@ -48,7 +54,6 @@ func _process(delta: float) -> void:
 				currentCraneType = "Sticky"
 			"Sticky":
 				currentCraneType = "Default"
-		
 func move():
 	#Player has control of the claw, moving it left or right
 	#this usually allows the player to move in all cardinal directions
@@ -68,6 +73,17 @@ func move():
 		#The player presses the button to lower the claw, atm this is Space Bar
 		if Input.is_action_pressed("grab"):
 			state = States.GRAB
+	else:#if you have no tokens left, gameover, but not if you got enough points
+		#print("check for gameover")
+		var toyNodes = get_tree().get_nodes_in_group("Toy")
+		var toyBool = false
+		for toy in toyNodes:
+			if toy is Area2D:
+				print(toy.position.x)
+				if toy.position.x <= 265:
+					toyBool = true
+		if !toyBool:
+			gameOver.emit()
 func grab():
 	#print("grab")
 	#The claw lowers itself down from where the player left the claw
@@ -95,6 +111,7 @@ func returnClaw():
 		timer.start(1)
 		timer.set_paused(false)
 
+	
 	#Random Drop Timer, based on some amount of time and weight, 
 		#a random chance to drop. Ex: 40 Weight = 40% chance to drop
 	if randomNum < netWeight:
@@ -151,10 +168,23 @@ func reset_tokens():
 
 
 func _on_gold_claw_button_down() -> void:
-	if currentCraneType != "Gold":
+	if currentCraneType != "Gold" and tokens > 3:
 		currentCraneType = "Gold"
+		tokens -= 3
+		print("Tokens: ", tokens)
 		#lose 3 tokens
 func _on_red_claw_button_down() -> void:
-	if currentCraneType != "Sticky":
+	if currentCraneType != "Sticky" and tokens > 3:
 		currentCraneType = "Sticky"
+		tokens -= 3
+		print("Tokens: ", tokens)
 		#lose 3 tokens
+func craneReset():
+	reset_tokens()
+	currentCraneType = "Default"
+
+
+func _on_toy_detect_check_tokens() -> void:
+	if tokens < 0:
+		gameOver.emit()
+	pass # Replace with function body.

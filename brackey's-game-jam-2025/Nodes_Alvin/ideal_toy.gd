@@ -1,24 +1,22 @@
 extends Sprite2D
 # Called when the node enters the scene tree for the first time.
 
-signal forceExistence(type,size,toyColor,num)
 func _ready() -> void:
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 
 func _on_toy_detect_favorite_toy(type,size,toyColour) -> void:
 	match size:
 		"Small":
-			scale = Vector2(0.125,0.125)
+			scale = Vector2(0.25,0.25)
+			$"Size Letter".texture = load("res://Assets_Alvin/Sprites/S.png")
 		"Medium":
 			scale = Vector2(0.25,0.25)
+			$"Size Letter".texture = load("res://Assets_Alvin/Sprites/M.png")
 		"Large":
 			scale = Vector2(0.50,0.50)/2
+			$"Size Letter".texture = load("res://Assets_Alvin/Sprites/L.png")
 	match type:
 		"Bird":
 			match toyColour: 
@@ -92,4 +90,3 @@ func _on_toy_detect_favorite_toy(type,size,toyColour) -> void:
 					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-monkey/Toy-monkey-red.png")
 				"Yellow":
 					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-monkey/Toy-monkey-yellow.png")
-	forceExistence.emit(type,size,toyColour,randi_range(1,5))

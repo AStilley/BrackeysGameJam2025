@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cy486p43w4iie"]
+[gd_scene load_steps=12 format=3 uid="uid://cy486p43w4iie"]
 
 [ext_resource type="PackedScene" uid="uid://cnp3eciqdb20r" path="res://Nodes_Alvin/crane.tscn" id="1_4g2d3"]
 [ext_resource type="Script" uid="uid://ddihn68dwi2si" path="res://Nodes_Alvin/crane_machine_level.gd" id="1_52bq2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c6vlk4o8c4bm1" path="res://Assets_Alvin/Sprites/Crane Claw Sprites/Red-claw-prize-redeem.png" id="7_hjspi"]
 [ext_resource type="Script" uid="uid://buvnmgxbil117" path="res://Nodes_Alvin/ideal_toy.gd" id="8_hjspi"]
 [ext_resource type="Texture2D" uid="uid://coendbjx1hwww" path="res://Assets_Alvin/Sprites/Toy Sprites/toy-bird/toy-bird-bklue.png" id="8_pf5i6"]
+[ext_resource type="Texture2D" uid="uid://3qwttjd1qvpx" path="res://Assets_Alvin/Sprites/M.png" id="10_57qxr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52bq2"]
 size = Vector2(523.625, 20)
@@ -34,7 +35,7 @@ shape = SubResource("RectangleShape2D_52bq2")
 position = Vector2(169, 398)
 
 [node name="TestToy" parent="." instance=ExtResource("2_02q7i")]
-position = Vector2(348, 228)
+position = Vector2(353, 237)
 scale = Vector2(0.25, 0.25)
 
 [node name="TestToy3" parent="." instance=ExtResource("2_02q7i")]
@@ -91,8 +92,15 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("8_pf5i6")
 script = ExtResource("8_hjspi")
 
+[node name="Size Letter" type="Sprite2D" parent="Ideal Toy"]
+position = Vector2(180, 188)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_57qxr")
+
 [connection signal="dropToy" from="Crane" to="TestToy" method="_on_crane_drop_toy"]
+[connection signal="checkTokens" from="ToyDetect" to="Crane" method="_on_toy_detect_check_tokens"]
 [connection signal="favoriteToy" from="ToyDetect" to="Ideal Toy" method="_on_toy_detect_favorite_toy"]
+[connection signal="levelComplete" from="ToyDetect" to="." method="_on_toy_detect_level_complete"]
+[connection signal="levelComplete" from="ToyDetect" to="Crane" method="_on_toy_detect_level_complete"]
 [connection signal="button_down" from="Gold Claw" to="Crane" method="_on_gold_claw_button_down"]
 [connection signal="button_down" from="Red Claw" to="Crane" method="_on_red_claw_button_down"]
-[connection signal="forceExistence" from="Ideal Toy" to="TestToy" method="_on_ideal_toy_force_existence"]
