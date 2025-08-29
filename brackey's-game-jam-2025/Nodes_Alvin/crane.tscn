@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnp3eciqdb20r"]
 
 [ext_resource type="Script" uid="uid://brbti2teiuc52" path="res://Nodes_Alvin/crane.gd" id="1_hqixi"]
-[ext_resource type="Texture2D" uid="uid://q43u6e2il6s1" path="res://Assets_Alvin/Sprites/open_crane.png" id="2_kyxik"]
+[ext_resource type="Texture2D" uid="uid://ity3aosthisl" path="res://Assets_Alvin/Sprites/Crane Claw Sprites/Open.png" id="2_n7mxt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyxik"]
-size = Vector2(71, 30)
+size = Vector2(60, 30)
 
 [node name="Crane" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_hqixi")
@@ -13,11 +13,12 @@ speed = 250
 [node name="Toy Holder" type="Sprite2D" parent="." groups=["player"]]
 
 [node name="CraneSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -352)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_kyxik")
+texture = ExtResource("2_n7mxt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 15)
+position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_kyxik")
 one_way_collision = true
 

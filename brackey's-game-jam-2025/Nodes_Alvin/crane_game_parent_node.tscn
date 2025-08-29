@@ -10,3 +10,22 @@ script = ExtResource("1_hn4cn")
 [node name="CraneMachineLevel" parent="." instance=ExtResource("1_xehnx")]
 
 [node name="PrizeCorner" parent="." instance=ExtResource("2_co7w4")]
+visible = false
+
+[node name="Main" type="Node2D" parent="."]
+
+[node name="Start" type="Button" parent="Main"]
+offset_left = 510.0
+offset_top = 176.0
+offset_right = 639.0
+offset_bottom = 233.0
+text = "Start game"
+metadata/_edit_use_anchors_ = true
+
+[node name="Credits" type="Button" parent="Main"]
+offset_left = 511.0
+offset_top = 317.0
+offset_right = 640.0
+offset_bottom = 374.0
+text = "Credits"
+metadata/_edit_use_anchors_ = true

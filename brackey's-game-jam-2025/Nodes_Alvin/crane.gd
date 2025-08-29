@@ -5,6 +5,7 @@ var state: States = States.MOVE
 @export var stopHeight := 550
 var craneTexture 
 signal dropToy(Node)
+var idleClaw
 var openClaw 
 var closeClaw
 @onready var timer: Timer = $Timer
@@ -20,7 +21,7 @@ func _ready() -> void:
 	currentCraneType = craneType[0]
 	print(currentCraneType)
 	checkClawType()
-	craneTexture = openClaw
+	craneTexture = idleClaw
 	reset_tokens()
 func _process(delta: float) -> void:	
 	if state == States.MOVE:
@@ -49,7 +50,7 @@ func move():
 	#Player has control of the claw, moving it left or right
 	#this usually allows the player to move in all cardinal directions
 		#but for this, it's just utilizing left and right	
-
+	craneTexture = idleClaw
 	if tokens >= 0:
 		var direction = Input.get_vector("left", "right", "up", "down")
 		if direction == Vector2(1,0) or direction == Vector2 (-1,0)or direction == Vector2 (0,0) :
@@ -63,12 +64,13 @@ func move():
 			state = States.GRAB
 func grab():
 	#The claw lowers itself down from where the player left the claw
+	craneTexture = openClaw
 	if position.y < stopHeight and $"Toy Holder".get_child_count() == 0:
 		velocity = Vector2(0,1) * speed
 	else:
 	#The claw stops then changes to the closed sprite then moves to the return state
 		velocity = Vector2(0,0)
-		craneTexture =load('res://Assets_Alvin/Sprites/closed_crane.png')
+		craneTexture = closeClaw
 		state = States.RETURN
 func returnClaw():
 	#If the claw has any toys, their net weight is added 
@@ -99,7 +101,7 @@ func returnClaw():
 		velocity = Vector2(-1,0) * speed
 		
 	else:
-		craneTexture = openClaw
+		craneTexture = idleClaw
 		$CraneSprite.texture = craneTexture
 		#The player resumes control of the claw
 		droptoy()
@@ -119,18 +121,21 @@ func _on_timer_timeout() -> void:
 func checkClawType():
 	match currentCraneType:
 		"Default":
-			openClaw = load('res://Assets_Alvin/Sprites/open_crane.png')
-			closeClaw = load('res://Assets_Alvin/Sprites/closed_crane.png')
+			idleClaw = load("res://Assets_Alvin/Sprites/Crane Claw Sprites/Open.png")
+			openClaw = load("res://Assets_Alvin/Sprites/Crane Claw Sprites/Open-wide.png")
+			closeClaw = load("res://Assets_Alvin/Sprites/Crane Claw Sprites/Closed.png")
 		"Gold":
+			#idleClaw = load()
 			openClaw = load("res://Assets_Alvin/Sprites/open_crane_gold.png")
 			closeClaw = load("res://Assets_Alvin/Sprites/closed_crane_gold.png")
 		"Sticky":
+			#idleClaw = load()
 			openClaw = load("res://Assets_Alvin/Sprites/open_crane_sticky.png")
 			closeClaw = load("res://Assets_Alvin/Sprites/closed_crane_sticky.png")
-	if $"Toy Holder".get_child_count() == 0:
-		craneTexture = openClaw
-	else:
-		craneTexture = closeClaw
+	#if $"Toy Holder".get_child_count() == 0:
+	#	craneTexture = idleClaw
+	#else:
+	#	craneTexture = closeClaw
 	$CraneSprite.texture = craneTexture
 func reset_tokens():
 	tokens = 10
