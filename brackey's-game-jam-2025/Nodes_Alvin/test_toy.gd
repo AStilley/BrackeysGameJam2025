@@ -7,8 +7,10 @@ var gravitySwitch = true
 
 var toy_floor = 400
 
-#TODO toyWeight based on type and size
 var toyWieght = 20
+
+#Set this to true to stack toys on each other
+var debug_gravity = false
 
 var toyTypeList = ["Bird", "Cat", "Dog", "Frog", "Gorilla", "Monkey"]
 var sizeTypeList = ["Small", "Medium", "Large"]
@@ -38,8 +40,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y = 0
 func _on_body_entered(body: Node2D) -> void:
-	print("Body Entered")
-	print(body.name)
+	#print("Body Entered")
+	#print(body.name)
 	gravitySwitch = true
 	#if the claw touches it, it is grabbed
 	if body.is_in_group("player") and !prize and position.y > 300:
@@ -68,6 +70,16 @@ func setToy(type, size, color):
 	toyType = type
 	toySize = size
 	toyColour = color
+	match size:
+		"Small":
+			scale = Vector2(0.125,0.125)
+			toyWieght = 10
+		"Medium":
+			scale = Vector2(0.25,0.25)
+			toyWieght = 20
+		"Large":
+			scale = Vector2(0.50,0.50)
+			toyWieght = 40
 	match type:
 		"Bird":
 			match toyColour: 
@@ -141,17 +153,8 @@ func setToy(type, size, color):
 					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-monkey/Toy-monkey-red.png")
 				"Yellow":
 					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-monkey/Toy-monkey-yellow.png")	
-	match size:
-		"Small":
-			scale = Vector2(0.08,0.08)
-			
-		"Medium":
-			scale = Vector2(0.125,0.125)
-			
-		"Large":
-			scale = Vector2(0.25,0.25)
-			
-	
+
+
 func _on_area_entered(area: Area2D) -> void:
-	if !area.is_in_group("Detect"):
-		gravitySwitch = false # Replace with function body.
+	if !area.is_in_group("Detect") and debug_gravity:
+		gravitySwitch = false

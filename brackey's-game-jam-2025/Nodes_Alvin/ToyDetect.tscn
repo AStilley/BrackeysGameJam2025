@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://o5bnob70e001" path="res://Nodes_Alvin/progress_bar.gd" id="2_n3jw1"]
 [ext_resource type="Texture2D" uid="uid://cuf40glimnv8e" path="res://Robert trash pile/icon.svg" id="3_knifv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bj8af"]
-size = Vector2(69.1973, 33.7213)
+[sub_resource type="CircleShape2D" id="CircleShape2D_tkdh7"]
+radius = 68.0074
 
 [node name="ToyDetect" type="Node2D"]
 position = Vector2(67, 596)
@@ -27,7 +27,7 @@ texture = ExtResource("3_knifv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectArea"]
 position = Vector2(-1, -1)
-shape = SubResource("RectangleShape2D_bj8af")
+shape = SubResource("CircleShape2D_tkdh7")
 
 [connection signal="ProgressChange" from="." to="." method="_on_progress_change"]
 [connection signal="area_entered" from="detectArea" to="." method="_on_detect_area_area_entered"]

@@ -69,7 +69,7 @@ func move():
 		if Input.is_action_pressed("grab"):
 			state = States.GRAB
 func grab():
-	print("grab")
+	#print("grab")
 	#The claw lowers itself down from where the player left the claw
 	craneTexture = openClaw
 	if position.y < stopHeight and $"Toy Holder".get_child_count() == 0:
@@ -80,7 +80,7 @@ func grab():
 		craneTexture = closeClaw
 		state = States.RETURN
 func returnClaw():
-	print("return claw")
+	#print("return claw")
 	#If the claw has any toys, their net weight is added 
 		#together for the drop chance
 	tokenUse = true
@@ -90,6 +90,7 @@ func returnClaw():
 			netWeight += get_node($"Toy Holder".get_child(n).get_path()).toyWieght
 		if currentCraneType == "Sticky":
 			netWeight /= 2
+		print("Netweight: ", netWeight)
 		print("start Timer")
 		timer.start(1)
 		timer.set_paused(false)
@@ -147,3 +148,13 @@ func checkClawType():
 	$CraneSprite.texture = craneTexture
 func reset_tokens():
 	tokens = 10
+
+
+func _on_gold_claw_button_down() -> void:
+	if currentCraneType != "Gold":
+		currentCraneType = "Gold"
+		#lose 3 tokens
+func _on_red_claw_button_down() -> void:
+	if currentCraneType != "Sticky":
+		currentCraneType = "Sticky"
+		#lose 3 tokens

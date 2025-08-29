@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cy486p43w4iie"]
+[gd_scene load_steps=9 format=3 uid="uid://cy486p43w4iie"]
 
 [ext_resource type="PackedScene" uid="uid://cnp3eciqdb20r" path="res://Nodes_Alvin/crane.tscn" id="1_4g2d3"]
 [ext_resource type="Script" uid="uid://ddihn68dwi2si" path="res://Nodes_Alvin/crane_machine_level.gd" id="1_52bq2"]
 [ext_resource type="PackedScene" uid="uid://bj7kdb2imyfyt" path="res://Nodes_Alvin/test_toy.tscn" id="2_02q7i"]
 [ext_resource type="PackedScene" uid="uid://nbwnpde4n51i" path="res://Nodes_Alvin/ToyDetect.tscn" id="4_7bdnx"]
 [ext_resource type="Texture2D" uid="uid://xq2gx1mfuco3" path="res://Assets_Alvin/Sprites/Tank-bg-placeholder.png" id="5_bassv"]
+[ext_resource type="Texture2D" uid="uid://c017bmsbrfk6k" path="res://Assets_Alvin/Sprites/Crane Claw Sprites/Gold-claw-prize-redeem.png" id="6_7yg4k"]
+[ext_resource type="Texture2D" uid="uid://c6vlk4o8c4bm1" path="res://Assets_Alvin/Sprites/Crane Claw Sprites/Red-claw-prize-redeem.png" id="7_hjspi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52bq2"]
 size = Vector2(523.625, 20)
@@ -16,13 +18,6 @@ script = ExtResource("1_52bq2")
 position = Vector2(576, 311)
 scale = Vector2(0.59975, 0.599749)
 texture = ExtResource("5_bassv")
-
-[node name="TestToy" parent="." instance=ExtResource("2_02q7i")]
-position = Vector2(464, 309)
-
-[node name="TestToy2" parent="." instance=ExtResource("2_02q7i")]
-position = Vector2(763, 205)
-scale = Vector2(0.25, 0.25)
 
 [node name="Crane" parent="." instance=ExtResource("1_4g2d3")]
 position = Vector2(160, 0)
@@ -36,4 +31,65 @@ shape = SubResource("RectangleShape2D_52bq2")
 [node name="ToyDetect" parent="." instance=ExtResource("4_7bdnx")]
 position = Vector2(169, 398)
 
+[node name="TestToy" parent="." instance=ExtResource("2_02q7i")]
+position = Vector2(354, 251)
+scale = Vector2(0.25, 0.25)
+
+[node name="TestToy3" parent="." instance=ExtResource("2_02q7i")]
+position = Vector2(586, 234)
+scale = Vector2(0.25, 0.25)
+
+[node name="TestToy5" parent="." instance=ExtResource("2_02q7i")]
+position = Vector2(827, 300)
+scale = Vector2(0.25, 0.25)
+
+[node name="TestToy2" parent="." instance=ExtResource("2_02q7i")]
+position = Vector2(448, 290)
+scale = Vector2(0.25, 0.25)
+
+[node name="TestToy4" parent="." instance=ExtResource("2_02q7i")]
+position = Vector2(680, 273)
+scale = Vector2(0.25, 0.25)
+
+[node name="TestToy6" parent="." instance=ExtResource("2_02q7i")]
+position = Vector2(747, 343)
+scale = Vector2(0.25, 0.25)
+
+[node name="TestToy12" parent="." instance=ExtResource("2_02q7i")]
+position = Vector2(774, 200)
+scale = Vector2(0.25, 0.25)
+
+[node name="Gold Claw" type="Button" parent="."]
+offset_left = 1015.0
+offset_top = 74.0
+offset_right = 1183.0
+offset_bottom = 242.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("6_7yg4k")
+
+[node name="TextEdit" type="TextEdit" parent="Gold Claw"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 174.0
+offset_right = 122.0
+offset_bottom = 212.0
+text = "3 Tokens"
+
+[node name="Red Claw" type="Button" parent="."]
+offset_left = 1019.0
+offset_top = 282.0
+offset_right = 1187.0
+offset_bottom = 450.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("7_hjspi")
+
+[node name="TextEdit" type="TextEdit" parent="Red Claw"]
+offset_left = 44.0
+offset_top = 174.0
+offset_right = 122.0
+offset_bottom = 212.0
+text = "3 Tokens"
+
 [connection signal="dropToy" from="Crane" to="TestToy" method="_on_crane_drop_toy"]
+[connection signal="button_down" from="Gold Claw" to="Crane" method="_on_gold_claw_button_down"]
+[connection signal="button_down" from="Red Claw" to="Crane" method="_on_red_claw_button_down"]
