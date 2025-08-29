@@ -166,5 +166,5 @@ func _on_area_entered(area: Area2D) -> void:
 func _on_ideal_toy_force_existence(type: Variant, size: Variant, toyColor: Variant, num: Variant) -> void:
 	#print(name)
 	#print("Ideal Toy is on: ",str("TestToy",num))	
-	#if name == str("TestToy",num):
-	setToy(type, size, toyColor)
+	if name == str("TestToy",num):
+		setToy(type, size, toyColor)
