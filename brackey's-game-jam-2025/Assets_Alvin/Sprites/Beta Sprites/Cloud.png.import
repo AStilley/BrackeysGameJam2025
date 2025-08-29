@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dquoj05wjtj8h"
-path="res://.godot/imported/closed_crane_sticky.png-05cc69af9b6721b4561f27df710f60e8.ctex"
+uid="uid://cxnh6tgtsfwyc"
+path="res://.godot/imported/Cloud.png-a581e7e32720854cd6128a5035c3cc47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets_Alvin/Sprites/closed_crane_sticky.png"
-dest_files=["res://.godot/imported/closed_crane_sticky.png-05cc69af9b6721b4561f27df710f60e8.ctex"]
+source_file="res://Assets_Alvin/Sprites/Beta Sprites/Cloud.png"
+dest_files=["res://.godot/imported/Cloud.png-a581e7e32720854cd6128a5035c3cc47.ctex"]
 
 [params]
 

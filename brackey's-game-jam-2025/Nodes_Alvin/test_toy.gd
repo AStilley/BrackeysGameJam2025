@@ -5,6 +5,8 @@ var originalParent
 var gravitySwitch = true
 @export var prize = false
 
+var toy_floor = 400
+
 #TODO toyWeight based on type and size
 var toyWieght = 20
 
@@ -17,12 +19,19 @@ var toySize = "Large"
 var toyColour = "Blue"
 @onready var toy_sprite: Sprite2D = $ToySprite
 
+
+
+
 func _ready() -> void:
 	originalParent = self.get_parent()
 	setToy(toyTypeList.pick_random(),sizeTypeList.pick_random(),colorTypeList.pick_random())
 func _physics_process(delta: float) -> void:
 	#if the toy is high up and not grabbed, it drops
-	if global_position.y < 600 and !self.get_parent().is_in_group("player"):
+	#if 	position.x < 375 and !self.get_parent().is_in_group("player"):
+		#if gravitySwitch:
+			#velocity.y += gravity * delta 
+			#global_position.y += velocity.y * delta
+	if global_position.y < toy_floor and !self.get_parent().is_in_group("player"):
 		if gravitySwitch:
 			velocity.y += gravity * delta 
 			global_position.y += velocity.y * delta
@@ -134,13 +143,13 @@ func setToy(type, size, color):
 					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-monkey/Toy-monkey-yellow.png")	
 	match size:
 		"Small":
-			scale = Vector2(0.125,0.125)
+			scale = Vector2(0.08,0.08)
 			
 		"Medium":
-			scale = Vector2(0.25,0.25)
+			scale = Vector2(0.125,0.125)
 			
 		"Large":
-			scale = Vector2(0.5,0.5)
+			scale = Vector2(0.25,0.25)
 			
 	
 func _on_area_entered(area: Area2D) -> void:

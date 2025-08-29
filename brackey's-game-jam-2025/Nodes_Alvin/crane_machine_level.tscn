@@ -1,32 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://cy486p43w4iie"]
+[gd_scene load_steps=7 format=3 uid="uid://cy486p43w4iie"]
 
 [ext_resource type="PackedScene" uid="uid://cnp3eciqdb20r" path="res://Nodes_Alvin/crane.tscn" id="1_4g2d3"]
 [ext_resource type="Script" uid="uid://ddihn68dwi2si" path="res://Nodes_Alvin/crane_machine_level.gd" id="1_52bq2"]
 [ext_resource type="PackedScene" uid="uid://bj7kdb2imyfyt" path="res://Nodes_Alvin/test_toy.tscn" id="2_02q7i"]
 [ext_resource type="PackedScene" uid="uid://nbwnpde4n51i" path="res://Nodes_Alvin/ToyDetect.tscn" id="4_7bdnx"]
+[ext_resource type="Texture2D" uid="uid://xq2gx1mfuco3" path="res://Assets_Alvin/Sprites/Tank-bg-placeholder.png" id="5_bassv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52bq2"]
-size = Vector2(1168.5, 20)
+size = Vector2(523.625, 20)
 
 [node name="CraneMachineLevel" type="Node2D"]
 script = ExtResource("1_52bq2")
 
+[node name="CraneTank" type="Sprite2D" parent="."]
+position = Vector2(576, 311)
+scale = Vector2(0.59975, 0.599749)
+texture = ExtResource("5_bassv")
+
 [node name="TestToy" parent="." instance=ExtResource("2_02q7i")]
-position = Vector2(321, 291)
+position = Vector2(464, 309)
 
 [node name="TestToy2" parent="." instance=ExtResource("2_02q7i")]
-position = Vector2(889, 245)
+position = Vector2(763, 205)
 scale = Vector2(0.25, 0.25)
 
 [node name="Crane" parent="." instance=ExtResource("1_4g2d3")]
+position = Vector2(160, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(580.75, 637)
+position = Vector2(638.188, 500)
 shape = SubResource("RectangleShape2D_52bq2")
 
 [node name="ToyDetect" parent="." instance=ExtResource("4_7bdnx")]
-position = Vector2(68, 596)
+position = Vector2(169, 398)
 
 [connection signal="dropToy" from="Crane" to="TestToy" method="_on_crane_drop_toy"]

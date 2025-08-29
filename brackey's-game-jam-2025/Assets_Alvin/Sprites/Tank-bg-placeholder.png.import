@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3dj5dsyx26es"
-path="res://.godot/imported/closed_crane.png-646341a4092c4013a2f3f1fa16337629.ctex"
+uid="uid://xq2gx1mfuco3"
+path="res://.godot/imported/Tank-bg-placeholder.png-ff47d11d6e85d9873ac7a146db405caf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets_Alvin/Sprites/closed_crane.png"
-dest_files=["res://.godot/imported/closed_crane.png-646341a4092c4013a2f3f1fa16337629.ctex"]
+source_file="res://Assets_Alvin/Sprites/Tank-bg-placeholder.png"
+dest_files=["res://.godot/imported/Tank-bg-placeholder.png-ff47d11d6e85d9873ac7a146db405caf.ctex"]
 
 [params]
 

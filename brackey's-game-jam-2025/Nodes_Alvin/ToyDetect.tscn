@@ -12,10 +12,10 @@ position = Vector2(67, 596)
 script = ExtResource("1_tkdh7")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = 893.0
-offset_top = -559.0
-offset_right = 994.0
-offset_bottom = -482.0
+offset_left = 558.0
+offset_top = -333.0
+offset_right = 659.0
+offset_bottom = -256.0
 script = ExtResource("2_n3jw1")
 
 [node name="detectArea" type="Area2D" parent="." groups=["Detect"]]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db57loetibyeu"
-path="res://.godot/imported/Crane Scene.png-dadfdab5ff398c1717c043057be7023b.ctex"
+uid="uid://n0gqsdb4dvab"
+path="res://.godot/imported/open-wide-red.png-ac9bee0f390b2fe2534c0ceb20c18599.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets_Alvin/Sprites/Crane Scene.png"
-dest_files=["res://.godot/imported/Crane Scene.png-dadfdab5ff398c1717c043057be7023b.ctex"]
+source_file="res://Assets_Alvin/Sprites/Crane Claw Sprites/open-wide-red.png"
+dest_files=["res://.godot/imported/open-wide-red.png-ac9bee0f390b2fe2534c0ceb20c18599.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q43u6e2il6s1"
-path="res://.godot/imported/open_crane.png-43a7afc422a9738e2cd7ec68fcfec163.ctex"
+uid="uid://db57loetibyeu"
+path="res://.godot/imported/Crane Scene.png-b6bd2228bbbeb3c33f05ea77a09dd537.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets_Alvin/Sprites/open_crane.png"
-dest_files=["res://.godot/imported/open_crane.png-43a7afc422a9738e2cd7ec68fcfec163.ctex"]
+source_file="res://Assets_Alvin/Sprites/Beta Sprites/Crane Scene.png"
+dest_files=["res://.godot/imported/Crane Scene.png-b6bd2228bbbeb3c33f05ea77a09dd537.ctex"]
 
 [params]
 

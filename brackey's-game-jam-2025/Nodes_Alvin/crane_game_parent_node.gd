@@ -76,3 +76,9 @@ func mainMenuOff():
 func reset_tokens():
 	tokens = 10
 	
+
+
+func _on_start_pressed() -> void:
+	screen+= 1
+	switchToScreen()
+	pass # Replace with function body.

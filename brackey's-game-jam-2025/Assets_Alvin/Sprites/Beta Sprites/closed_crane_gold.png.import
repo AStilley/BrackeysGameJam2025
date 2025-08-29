@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4bub1daj11i"
-path="res://.godot/imported/open_crane_gold.png-364f7844f7a83a33670b7554672dd38e.ctex"
+uid="uid://do4366alyj7tx"
+path="res://.godot/imported/closed_crane_gold.png-2d0ba65451bccf733fbf4c0451e390d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets_Alvin/Sprites/open_crane_gold.png"
-dest_files=["res://.godot/imported/open_crane_gold.png-364f7844f7a83a33670b7554672dd38e.ctex"]
+source_file="res://Assets_Alvin/Sprites/Beta Sprites/closed_crane_gold.png"
+dest_files=["res://.godot/imported/closed_crane_gold.png-2d0ba65451bccf733fbf4c0451e390d8.ctex"]
 
 [params]
 
