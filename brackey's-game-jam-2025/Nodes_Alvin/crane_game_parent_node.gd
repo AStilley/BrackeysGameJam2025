@@ -1,6 +1,5 @@
 extends Node2D
 @onready var crane_machine_level: Node2D = $CraneMachineLevel
-@onready var prize_corner: Node2D = $PrizeCorner
 @onready var main: Node2D = $Main
 
 
@@ -14,8 +13,6 @@ func _ready() -> void:
 	print("Screen test")
 	crane_machine_level.visible = false
 	crane_machine_level.set_process(false)
-	prize_corner.visible = false
-	prize_corner.set_process(false)
 	main.visible = true
 	main.set_process(true)
 	reset_tokens()
@@ -36,21 +33,14 @@ func switchToScreen():
 		1:
 			mainMenuOn()
 			craneMachineOff()
-			prizeCornerOff()
 			mainMenuOff()
 			pass
 		2:
 			#Whatever the current level is
 			craneMachineOn()
-			prizeCornerOff()
 			mainMenuOff()
 			pass
 		3:
-			prizeCornerOn()
-			craneMachineOff()
-			mainMenuOff()			
-			pass
-		4:
 			screen = 1
 			switchToScreen()
 			mainMenuOn()
@@ -61,12 +51,6 @@ func craneMachineOn():
 func craneMachineOff():
 	crane_machine_level.visible = false
 	crane_machine_level.set_process(false)
-func prizeCornerOn():
-	prize_corner.visible = true
-	prize_corner.set_process(true)
-func prizeCornerOff():
-	prize_corner.visible = false
-	prize_corner.set_process(false)	
 func mainMenuOn():
 	main.visible = true
 	main.set_process(true)

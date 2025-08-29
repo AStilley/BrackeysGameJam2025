@@ -11,11 +11,15 @@ var colorTypeList = ["Blue", "Green", "Purple", "Red", "Yellow"]
 var favType = toyTypeList.pick_random()
 var favSize = sizeTypeList.pick_random()
 var favColour = colorTypeList.pick_random()
+
+signal favoriteToy(favType,favSize, favColour)
+
 func _ready() -> void:
 	resetFavorites()
 	print("Favorite Type: ", favType)
 	print("Favorite Size: ", favSize)
 	print("Favorite Color: ", favColour)
+
 func _on_progress_change(n):
 	$ProgressBar.value += n
 	#print($ProgressBar.value)
@@ -23,6 +27,7 @@ func resetFavorites():
 	favType = toyTypeList.pick_random()
 	favSize = sizeTypeList.pick_random()
 	favColour = colorTypeList.pick_random()
+	favoriteToy.emit(favType,favSize, favColour)
 func _on_detect_area_area_entered(area: Area2D) -> void:
 	
 	#Daughter's Favorites for the Level

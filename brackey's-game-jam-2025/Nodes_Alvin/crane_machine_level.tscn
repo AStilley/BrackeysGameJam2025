@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy486p43w4iie"]
+[gd_scene load_steps=11 format=3 uid="uid://cy486p43w4iie"]
 
 [ext_resource type="PackedScene" uid="uid://cnp3eciqdb20r" path="res://Nodes_Alvin/crane.tscn" id="1_4g2d3"]
 [ext_resource type="Script" uid="uid://ddihn68dwi2si" path="res://Nodes_Alvin/crane_machine_level.gd" id="1_52bq2"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://xq2gx1mfuco3" path="res://Assets_Alvin/Sprites/Tank-bg-placeholder.png" id="5_bassv"]
 [ext_resource type="Texture2D" uid="uid://c017bmsbrfk6k" path="res://Assets_Alvin/Sprites/Crane Claw Sprites/Gold-claw-prize-redeem.png" id="6_7yg4k"]
 [ext_resource type="Texture2D" uid="uid://c6vlk4o8c4bm1" path="res://Assets_Alvin/Sprites/Crane Claw Sprites/Red-claw-prize-redeem.png" id="7_hjspi"]
+[ext_resource type="Script" uid="uid://buvnmgxbil117" path="res://Nodes_Alvin/ideal_toy.gd" id="8_hjspi"]
+[ext_resource type="Texture2D" uid="uid://coendbjx1hwww" path="res://Assets_Alvin/Sprites/Toy Sprites/toy-bird/toy-bird-bklue.png" id="8_pf5i6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52bq2"]
 size = Vector2(523.625, 20)
@@ -32,31 +34,23 @@ shape = SubResource("RectangleShape2D_52bq2")
 position = Vector2(169, 398)
 
 [node name="TestToy" parent="." instance=ExtResource("2_02q7i")]
-position = Vector2(354, 251)
+position = Vector2(348, 228)
 scale = Vector2(0.25, 0.25)
 
 [node name="TestToy3" parent="." instance=ExtResource("2_02q7i")]
-position = Vector2(586, 234)
+position = Vector2(598, 224)
 scale = Vector2(0.25, 0.25)
 
 [node name="TestToy5" parent="." instance=ExtResource("2_02q7i")]
-position = Vector2(827, 300)
+position = Vector2(831, 231)
 scale = Vector2(0.25, 0.25)
 
 [node name="TestToy2" parent="." instance=ExtResource("2_02q7i")]
-position = Vector2(448, 290)
+position = Vector2(474, 307)
 scale = Vector2(0.25, 0.25)
 
 [node name="TestToy4" parent="." instance=ExtResource("2_02q7i")]
-position = Vector2(680, 273)
-scale = Vector2(0.25, 0.25)
-
-[node name="TestToy6" parent="." instance=ExtResource("2_02q7i")]
-position = Vector2(747, 343)
-scale = Vector2(0.25, 0.25)
-
-[node name="TestToy12" parent="." instance=ExtResource("2_02q7i")]
-position = Vector2(774, 200)
+position = Vector2(718, 307)
 scale = Vector2(0.25, 0.25)
 
 [node name="Gold Claw" type="Button" parent="."]
@@ -84,12 +78,21 @@ scale = Vector2(0.5, 0.5)
 icon = ExtResource("7_hjspi")
 
 [node name="TextEdit" type="TextEdit" parent="Red Claw"]
+layout_mode = 0
 offset_left = 44.0
 offset_top = 174.0
 offset_right = 122.0
 offset_bottom = 212.0
 text = "3 Tokens"
 
+[node name="Ideal Toy" type="Sprite2D" parent="."]
+position = Vector2(1066, 460)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_pf5i6")
+script = ExtResource("8_hjspi")
+
 [connection signal="dropToy" from="Crane" to="TestToy" method="_on_crane_drop_toy"]
+[connection signal="favoriteToy" from="ToyDetect" to="Ideal Toy" method="_on_toy_detect_favorite_toy"]
 [connection signal="button_down" from="Gold Claw" to="Crane" method="_on_gold_claw_button_down"]
 [connection signal="button_down" from="Red Claw" to="Crane" method="_on_red_claw_button_down"]
+[connection signal="forceExistence" from="Ideal Toy" to="TestToy" method="_on_ideal_toy_force_existence"]
