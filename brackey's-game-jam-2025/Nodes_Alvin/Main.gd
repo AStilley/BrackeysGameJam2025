@@ -1,7 +1,7 @@
 extends Node2D
 
 signal ProgressChange(n)
-
+signal Test
 @onready var y = 300
 @onready var x = -1000
 @onready var i = 1

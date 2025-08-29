@@ -6,8 +6,6 @@
 [node name="CraneGameParentNode" type="Node2D"]
 script = ExtResource("1_hn4cn")
 
-[node name="CraneMachineLevel" parent="." instance=ExtResource("1_xehnx")]
-
 [node name="Main" type="Node2D" parent="."]
 
 [node name="Start" type="Button" parent="Main"]
@@ -25,5 +23,9 @@ offset_right = 640.0
 offset_bottom = 374.0
 text = "Credits"
 metadata/_edit_use_anchors_ = true
+
+[node name="CraneMachineLevel" parent="." instance=ExtResource("1_xehnx")]
+
+[node name="ScoreAndCollection" type="Node2D" parent="."]
 
 [connection signal="pressed" from="Main/Start" to="." method="_on_start_pressed"]

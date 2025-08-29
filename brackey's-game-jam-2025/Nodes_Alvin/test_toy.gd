@@ -20,8 +20,10 @@ var toyType = "Bird"
 var toySize = "Large"
 var toyColour = "Blue"
 
-
-
+var favType
+var favSize
+var favColor
+var favPosition
 @onready var toy_sprite: Sprite2D = $ToySprite
 
 
@@ -165,6 +167,8 @@ func _on_area_entered(area: Area2D) -> void:
 
 func _on_ideal_toy_force_existence(type: Variant, size: Variant, toyColor: Variant, num: Variant) -> void:
 	#print(name)
-	#print("Ideal Toy is on: ",str("TestToy",num))	
-	if name == str("TestToy",num):
-		setToy(type, size, toyColor)
+	favType
+	favSize
+	favColor
+	print("Ideal Toy is on: ",str("TestToy",num))	
+	#get_parent().get_node(str("TestToy",num)).setToy(type, size, toyColor)
