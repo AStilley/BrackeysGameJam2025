@@ -37,7 +37,6 @@ func _physics_process(delta: float) -> void:
 		#if gravitySwitch:
 			#velocity.y += gravity * delta 
 			#global_position.y += velocity.y * delta
-	
 	if global_position.y < toy_floor and !self.get_parent().is_in_group("player"):
 		if gravitySwitch:
 			velocity.y += gravity * delta 
@@ -72,6 +71,10 @@ func _on_crane_drop_toy(toy) -> void:
 		#print(get_parent())
 		toy.prize = false
 func setToy(type, size, color):
+	if randi_range(1,2) == 2:
+		$ToySprite.flip_h = true
+	else:
+		$ToySprite.flip_h = false	
 	toyType = type
 	toySize = size
 	toyColour = color

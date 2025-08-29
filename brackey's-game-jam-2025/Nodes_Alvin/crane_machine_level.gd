@@ -25,6 +25,7 @@ func GoGameOverScreen():
 		print("Level was completed, avoided game over")
 func fullReset():
 	level = 1
+	$"Left Hand".ring(level)
 	restartLevel()
 func restartLevel():
 	print("test")
@@ -35,6 +36,7 @@ func restartLevel():
 func _on_toy_detect_level_complete() -> void:
 	levelCompleted = true
 	level += 1
+	$"Left Hand".ring(level)
 	restartLevel()
 	print(level)
 	nextLevel.emit()

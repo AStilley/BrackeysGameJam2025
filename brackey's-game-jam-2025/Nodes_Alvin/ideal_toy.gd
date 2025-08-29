@@ -7,6 +7,9 @@ func _ready() -> void:
 
 
 func _on_toy_detect_favorite_toy(type,size,toyColour) -> void:
+	#var randomToy = get_tree().get_nodes_in_group("Toy")
+	#var randomNodeToy = randomToy.pick_random()
+	#randomNodeToy.call("setToy", type, size, toyColour )
 	match size:
 		"Small":
 			scale = Vector2(0.25,0.25)
