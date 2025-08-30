@@ -4,7 +4,7 @@ signal ProgressChange(n)
 signal levelComplete
 @onready var y = 300
 @onready var x = -1000
-@onready var i = 0
+
 var toyTypeList = ["Bird", "Cat", "Dog", "Frog", "Gorilla", "Monkey"]
 var sizeTypeList = ["Small", "Medium", "Large"]
 var colorTypeList = ["Blue", "Green", "Purple", "Red", "Yellow"]
@@ -58,23 +58,21 @@ func _on_detect_area_area_entered(area: Area2D) -> void:
 		
 	var crane = get_node($"../Crane".get_path())
 	
+	Globals.ScoredToysColour.append(ball.toyColour)
+	print(Globals.ScoredToysColour)
+	Globals.ScoredToysSize.append(ball.toySize)
+	print(Globals.ScoredToysSize)
+	Globals.ScoredToysType.append(ball.toyType)
+	print(Globals.ScoredToysType)
+	Globals.i += 1
+	
 	if crane.currentCraneType == "Gold":
 		ProgressChange.emit(totalScore*2)
 	else:
 		ProgressChange.emit(totalScore)
 	
-	ScoredToysColour[i] = ball.toyColour
-	ScoredToysSize[i] = ball.toySize
-	coredToysType[i] = ball.toyType
-	
-	
-	
-	
-	
-	
-
-	
-	#Used to create the next new toy
+		#print(Globals.i)
+		#Used to create the next new toy
 	ball.resetPosition()
 	##Moves Toy to Score Area, Maybe uneeded?
 	#ball.global_position = Vector2(x, y)

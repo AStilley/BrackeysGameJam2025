@@ -4,7 +4,7 @@ extends Node2D
 @onready var score_and_collection: Node2D = $ScoreAndCollection
 @onready var game_over: Node2D = $"Game Over"
 
-
+signal ScoreToy(size, type, toyColour)
 
 var screen = 1
 
@@ -74,6 +74,18 @@ func score_and_collectionOn():
 	score_and_collection.visible = true
 	score_and_collection.set_process(true)
 	
+	var listOfScoreToys = get_tree().get_nodes_in_group("ScoredToy")
+	get_tree().call_group("ScoredToy", "PrizeInvisible")
+	for n in Globals.i:
+		listOfScoreToys[n]._on_crane_game_parent_node_score_toy(Globals.ScoredToysType[n],Globals.ScoredToysSize[n],Globals.ScoredToysColour[n])
+	#listOfScoreToys[Globals.i]._on_crane_game_parent_node_score_toy(Globals.ScoredToysType[Globals.i],Globals.ScoredToysSize[Globals.i],Globals.ScoredToysColour[Globals.i])
+		
+		#var node = get_node("Score Toy" + str(Globals.x + 1))
+		#ScoreToy.emit()
+		
+	print("Die Lock")
+		
+	
 func score_and_collectionOff():
 	score_and_collection.visible = false
 	score_and_collection.set_process(false)
@@ -109,6 +121,14 @@ func _on_main_menu_button_down() -> void:
 
 func _on_retry_button_down() -> void:
 	$CraneMachineLevel.restartLevel()
+	screen = 2
+	switchToScreen()
+	pass # Replace with function body.
+	
+	
+
+
+func _on_next_2_button_down():
 	screen = 2
 	switchToScreen()
 	pass # Replace with function body.

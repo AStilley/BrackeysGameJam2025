@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://grb1qkthhtwl"]
+
+[ext_resource type="Texture2D" uid="uid://bsgwjswpoheab" path="res://Assets_Alvin/Sprites/Score Screen WIP.png" id="1_40w6s"]
+
+[node name="ScoreAndCollection" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(574.75, 324.5)
+scale = Vector2(1.50657, 1.49535)
+texture = ExtResource("1_40w6s")
