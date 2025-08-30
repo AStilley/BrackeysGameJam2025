@@ -15,6 +15,7 @@ func _ready() -> void:
 	craneMachineOff()
 	score_and_collectionOff()
 	gameOverOff()
+	gameWinOff()
 	$CraneMachineLevel.nextLevel.connect(nextscreen)
 	$CraneMachineLevel.gameOverScreen.connect(GameOverMenu)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,6 +35,8 @@ func switchToScreen():
 			craneMachineOff()
 			score_and_collectionOff()
 			gameOverOff()
+			gameWinOff()
+			
 			pass
 		2:
 			#Whatever the current level is
@@ -41,6 +44,7 @@ func switchToScreen():
 			mainMenuOff()
 			score_and_collectionOff()
 			gameOverOff()
+			gameWinOff()
 			pass
 		3:
 			#Whatever the current level is
@@ -48,16 +52,35 @@ func switchToScreen():
 			craneMachineOff()
 			mainMenuOff()
 			gameOverOff()
+			gameWinOff()
 			pass
 		4:
 			screen = 1
 			switchToScreen()
+			
 		5: #game over
+			gameWinOff()
 			#print("game over")
 			gameOverOn()
 			#craneMachineOff()
 			mainMenuOff()
 			score_and_collectionOff()
+			
+		6: #Game Win
+			print("game win")
+			gameWinOn()
+			gameOverOff()
+			craneMachineOff()
+			mainMenuOff()
+			score_and_collectionOff()
+			
+			
+func gameWinOn():
+	$GameEnd.visible = true
+	$GameEnd.set_process(true)
+func gameWinOff():
+	$GameEnd.visible = false
+	$GameEnd.set_process(false)
 func craneMachineOn():
 	crane_machine_level.visible = true
 	crane_machine_level.set_process(true)
@@ -137,6 +160,15 @@ func _on_retry_button_down() -> void:
 
 
 func _on_next_2_button_down():
-	screen = 2
+	if Globals.LevelCount == 2:
+		screen = 6
+	else:
+		screen = 2
+	switchToScreen()
+	pass # Replace with function body.
+
+
+func _on_button_pressed():
+	screen = 1
 	switchToScreen()
 	pass # Replace with function body.

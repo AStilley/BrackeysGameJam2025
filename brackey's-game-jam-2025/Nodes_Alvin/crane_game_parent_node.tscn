@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmsf72xefdqb"]
+[gd_scene load_steps=13 format=3 uid="uid://dmsf72xefdqb"]
 
 [ext_resource type="Script" uid="uid://bvdkeot5sw57r" path="res://Nodes_Alvin/crane_game_parent_node.gd" id="1_hn4cn"]
 [ext_resource type="PackedScene" uid="uid://cy486p43w4iie" path="res://Nodes_Alvin/crane_machine_level.tscn" id="1_xehnx"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cklhcp8gp2c2v" path="res://Assets_Alvin/Sprites/Game Over Screen/Retry.png" id="6_556vl"]
 [ext_resource type="PackedScene" uid="uid://dblddv4nx7whc" path="res://ScoreToy.tscn" id="7_556vl"]
 [ext_resource type="Texture2D" uid="uid://d0u03lmqdnd3q" path="res://Assets_Alvin/Sprites/Continue.png" id="7_fxcit"]
+[ext_resource type="Texture2D" uid="uid://cfr543tbqiinv" path="res://icon.svg" id="12_mn8bq"]
 
 [node name="CraneGameParentNode" type="Node2D"]
 script = ExtResource("1_hn4cn")
@@ -136,8 +137,21 @@ icon = ExtResource("6_556vl")
 
 [node name="Scene Themes" type="AudioStreamPlayer" parent="."]
 
+[node name="GameEnd" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="GameEnd"]
+position = Vector2(588, 330)
+texture = ExtResource("12_mn8bq")
+
+[node name="Button" type="Button" parent="GameEnd"]
+offset_left = 530.0
+offset_top = 275.0
+offset_right = 640.0
+offset_bottom = 388.0
+
 [connection signal="ScoreToy" from="." to="ScoreAndCollection/Score Toy1" method="_on_crane_game_parent_node_score_toy"]
 [connection signal="pressed" from="Main/Start" to="." method="_on_start_pressed"]
 [connection signal="button_down" from="ScoreAndCollection/Next2" to="." method="_on_next_2_button_down"]
 [connection signal="button_down" from="Game Over/Main Menu" to="." method="_on_main_menu_button_down"]
 [connection signal="button_down" from="Game Over/Retry" to="." method="_on_retry_button_down"]
+[connection signal="pressed" from="GameEnd/Button" to="." method="_on_button_pressed"]

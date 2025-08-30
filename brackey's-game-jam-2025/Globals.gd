@@ -3,6 +3,7 @@ extends Node
 var i = 0 
 var x = 0 
 var mod = 1
+var LevelCount = 1
 
 var GlobalX = 200
 var GlobalY = 150

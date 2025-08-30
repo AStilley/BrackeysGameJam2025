@@ -1,7 +1,7 @@
 extends Node2D
 
-var level
-signal nextLevel
+
+signal nextLevel()
 signal gameOverScreen
 var levelCompleted = false
 #The player has a certain amount of tokens,
@@ -10,7 +10,7 @@ var levelCompleted = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	level = 1
+	Globals.LevelCount = 1
 	$Crane.gameOver.connect(GoGameOverScreen)	
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,22 +24,23 @@ func GoGameOverScreen():
 	else:
 		print("Level was completed, avoided game over")
 func fullReset():
-	level = 1
-	$"Left Hand".ring(level)
+	Globals.LevelCount = 1
+	$"Left Hand".ring(Globals.LevelCount)
 	restartLevel()
 func restartLevel():
 	print("test")
 	$Crane.craneReset()
-	$ToyDetect.resetProgressBar(level)
+	$ToyDetect.resetProgressBar(Globals.LevelCount)
 	get_tree().call_group("Toy","resetPosition")
 	levelCompleted = false
 func _on_toy_detect_level_complete() -> void:
 	
 	levelCompleted = true
-	level += 1
-	$"Left Hand".ring(level)
+	Globals.LevelCount += 1
+	
+	$"Left Hand".ring(Globals.LevelCount)
 	restartLevel()
-	print(level)
+	print(Globals.LevelCount)
 	nextLevel.emit()
 
 	#main screen should move over 1 screen to the collection screen
