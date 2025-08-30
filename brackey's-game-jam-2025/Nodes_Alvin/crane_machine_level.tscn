@@ -102,12 +102,14 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_57qxr")
 
 [node name="Right Hand" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(755, 509)
 scale = Vector2(0.59375, 0.59375)
 texture = ExtResource("12_ocfv0")
 script = ExtResource("12_312ma")
 
 [node name="Left Hand" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(414, 514)
 scale = Vector2(0.59375, 0.59375)
 texture = ExtResource("13_id0nc")

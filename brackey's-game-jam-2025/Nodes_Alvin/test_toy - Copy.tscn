@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://tbwsqp152n0e"]
 
-[ext_resource type="Texture2D" uid="uid://cxnh6tgtsfwyc" path="res://Assets_Alvin/Sprites/Cloud.png" id="1_3by11"]
+[ext_resource type="Texture2D" uid="uid://cxnh6tgtsfwyc" path="res://Assets_Alvin/Sprites/Beta Sprites/Cloud.png" id="1_3by11"]
 [ext_resource type="Script" uid="uid://cg7ejih0cp36r" path="res://Nodes_Alvin/test_toy - Copy.gd" id="1_gysx4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2nmi"]

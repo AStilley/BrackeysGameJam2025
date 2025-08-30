@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c4keb5r6isvwn"]
 
-[ext_resource type="Texture2D" uid="uid://db57loetibyeu" path="res://Assets_Alvin/Sprites/Crane Scene.png" id="1_eimls"]
+[ext_resource type="Texture2D" uid="uid://db57loetibyeu" path="res://Assets_Alvin/Sprites/Beta Sprites/Crane Scene.png" id="1_eimls"]
 [ext_resource type="Script" uid="uid://bgrtlusinvv2q" path="res://Nodes_Alvin/screen_transition_test.gd" id="1_tha5m"]
 [ext_resource type="Texture2D" uid="uid://rnh7rgyvgs6h" path="res://Assets_Alvin/Sprites/Prize counter.png" id="2_tha5m"]
 
