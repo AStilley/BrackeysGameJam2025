@@ -12,5 +12,5 @@ position = Vector2(606, 323)
 texture = ExtResource("1_eimls")
 
 [node name="PrizeCorner" type="Sprite2D" parent="."]
-position = Vector2(606, 323)
+position = Vector2(597, 311)
 texture = ExtResource("2_tha5m")

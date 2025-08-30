@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bvdkeot5sw57r" path="res://Nodes_Alvin/crane_game_parent_node.gd" id="1_hn4cn"]
 [ext_resource type="PackedScene" uid="uid://cy486p43w4iie" path="res://Nodes_Alvin/crane_machine_level.tscn" id="1_xehnx"]
-[ext_resource type="Texture2D" uid="uid://bd88hqtngln85" path="res://Assets_Alvin/Sprites/example collection.png" id="3_hn4cn"]
+[ext_resource type="Texture2D" uid="uid://bsgwjswpoheab" path="res://Assets_Alvin/Sprites/Score Screen WIP.png" id="3_81aif"]
 [ext_resource type="Texture2D" uid="uid://beuwhfshc28vx" path="res://Assets_Alvin/Sprites/Game Over Screen/GameOverTitle.png" id="4_81aif"]
 [ext_resource type="Texture2D" uid="uid://cniydfwxw6uh" path="res://Assets_Alvin/Sprites/Game Over Screen/MainMenu.png" id="5_x8sla"]
 [ext_resource type="Texture2D" uid="uid://cklhcp8gp2c2v" path="res://Assets_Alvin/Sprites/Game Over Screen/Retry.png" id="6_556vl"]
@@ -11,6 +11,7 @@
 script = ExtResource("1_hn4cn")
 
 [node name="Main" type="Node2D" parent="."]
+visible = false
 
 [node name="Start" type="Button" parent="Main"]
 offset_left = 510.0
@@ -29,21 +30,24 @@ text = "Credits"
 metadata/_edit_use_anchors_ = true
 
 [node name="CraneMachineLevel" parent="." instance=ExtResource("1_xehnx")]
+visible = false
 
 [node name="ScoreAndCollection" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="ScoreAndCollection"]
-position = Vector2(574, 323)
-texture = ExtResource("3_hn4cn")
+position = Vector2(574.75, 324.5)
+scale = Vector2(1.50657, 1.49535)
+texture = ExtResource("3_81aif")
 
 [node name="Next" type="Button" parent="ScoreAndCollection"]
-offset_left = 811.0
-offset_top = 524.0
-offset_right = 819.0
-offset_bottom = 532.0
+offset_left = 1010.0
+offset_top = 581.0
+offset_right = 1018.0
+offset_bottom = 589.0
 scale = Vector2(18.883, 8.69959)
 
 [node name="Game Over" type="Node2D" parent="."]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Game Over"]
 position = Vector2(571, 232)

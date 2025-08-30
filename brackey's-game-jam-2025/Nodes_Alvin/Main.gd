@@ -4,7 +4,7 @@ signal ProgressChange(n)
 signal levelComplete
 @onready var y = 300
 @onready var x = -1000
-@onready var i = 1
+@onready var i = 0
 var toyTypeList = ["Bird", "Cat", "Dog", "Frog", "Gorilla", "Monkey"]
 var sizeTypeList = ["Small", "Medium", "Large"]
 var colorTypeList = ["Blue", "Green", "Purple", "Red", "Yellow"]
@@ -63,7 +63,16 @@ func _on_detect_area_area_entered(area: Area2D) -> void:
 	else:
 		ProgressChange.emit(totalScore)
 	
+	ScoredToysColour[i] = ball.toyColour
+	ScoredToysSize[i] = ball.toySize
+	coredToysType[i] = ball.toyType
 	
+	
+	
+	
+	
+	
+
 	
 	#Used to create the next new toy
 	ball.resetPosition()

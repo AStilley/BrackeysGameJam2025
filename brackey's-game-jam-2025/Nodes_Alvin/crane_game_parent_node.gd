@@ -73,6 +73,7 @@ func mainMenuOff():
 func score_and_collectionOn():
 	score_and_collection.visible = true
 	score_and_collection.set_process(true)
+	
 func score_and_collectionOff():
 	score_and_collection.visible = false
 	score_and_collection.set_process(false)
