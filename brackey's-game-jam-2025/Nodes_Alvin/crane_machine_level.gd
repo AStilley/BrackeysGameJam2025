@@ -34,6 +34,8 @@ func restartLevel():
 	get_tree().call_group("Toy","resetPosition")
 	levelCompleted = false
 func _on_toy_detect_level_complete() -> void:
+	
+		
 	levelCompleted = true
 	level += 1
 	$"Left Hand".ring(level)

@@ -1,0 +1,108 @@
+extends Sprite2D
+# Called when the node enters the scene tree for the first time.
+
+func _ready() -> void:
+	#_on_toy_detect_favorite_toy(Globals.ScoredToysType[Globals.x],Globals.ScoredToysSize[Globals.x],Globals.ScoredToysColour[Globals.x])
+	
+		
+	
+	
+	pass # Replace with function body.
+ 
+
+
+#func _on_toy_detect_favorite_toy() -> void:
+	##var randomToy = get_tree().get_nodes_in_group("Toy")
+	##var randomNodeToy = randomToy.pick_random()
+	##randomNodeToy.call("setToy", type, size, toyColour )
+	#
+func PrizeInvisible():
+	texture = null
+	$"Size Letter".texture = null
+
+func _on_crane_game_parent_node_score_toy(type, size, toyColour):
+	#print(size, type, toyColour)
+	match size:
+		"Small":
+			scale = Vector2(0.25,0.25)
+			$"Size Letter".texture = load("res://Assets_Alvin/Sprites/S.png")
+		"Medium":
+			scale = Vector2(1,1)/4
+			$"Size Letter".texture = load("res://Assets_Alvin/Sprites/M.png")
+		"Large":
+			scale = Vector2(0.50,0.50)/2
+			$"Size Letter".texture = load("res://Assets_Alvin/Sprites/L.png")
+	match type:
+		"Bird":
+			match toyColour: 
+				"Blue":
+					texture = load('res://Assets_Alvin/Sprites/Toy Sprites/toy-bird/toy-bird-bklue.png')
+				"Green":
+					texture = load('res://Assets_Alvin/Sprites/Toy Sprites/toy-bird/toy-bird-green.png')
+				"Purple":
+					texture = load('res://Assets_Alvin/Sprites/Toy Sprites/toy-bird/toy-bird-purple.png')
+				"Red":
+					texture = load('res://Assets_Alvin/Sprites/Toy Sprites/toy-bird/toy-bird-red.png')
+				"Yellow":
+					texture = load('res://Assets_Alvin/Sprites/Toy Sprites/toy-bird/toy-bird-yellow.png')													
+		"Cat":
+			match toyColour: 
+				"Blue":
+					texture = load('res://Assets_Alvin/Sprites/Toy Sprites/toy-cat/toy-cat-blue.png')
+				"Green":
+					texture = load('res://Assets_Alvin/Sprites/Toy Sprites/toy-cat/toy-cat-green.png')
+				"Purple":
+					texture = load('res://Assets_Alvin/Sprites/Toy Sprites/toy-cat/toy-cat-purple.png')
+				"Red":
+					texture = load('res://Assets_Alvin/Sprites/Toy Sprites/toy-cat/toy-cat-red.png')
+				"Yellow":
+					texture = load('res://Assets_Alvin/Sprites/Toy Sprites/toy-cat/toy-cat-yellow.png')
+		"Dog":
+			match toyColour: 
+				"Blue":
+					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-dog/toy-dog-blue.png")
+				"Green":
+					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-dog/toy-dog-green.png")
+				"Purple":
+					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-dog/toy-dog-purple.png")
+				"Red":
+					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-dog/toy-dog-red.png")
+				"Yellow":
+					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-dog/toy-dog-yellow.png")		
+		"Frog":
+			match toyColour: 
+				"Blue":
+					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-frog/toy-frog-blue.png")
+				"Green":
+					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-frog/toy-frog-green.png")
+				"Purple":
+					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-frog/toy-frog-purple.png")
+				"Red":
+					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-frog/toy-frog-red.png")
+				"Yellow":
+					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-frog/toy-frog-yellow.png")		
+		"Gorilla":
+			match toyColour: 
+				"Blue":
+					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-gorilla/toy-gorilla-blue.png")
+				"Green":
+					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-gorilla/toy-gorilla-green.png")
+				"Purple":
+					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-gorilla/toy-gorilla-purple.png")
+				"Red":
+					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-gorilla/toy-gorilla-red.png")	
+				"Yellow":
+					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-gorilla/toy-gorilla-yellow.png")	
+		"Monkey":
+			match toyColour: 
+				"Blue":
+					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-monkey/Toy-monkey-blue.png")
+				"Green":
+					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-monkey/Toy-monkey-green.png")
+				"Purple":
+					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-monkey/Toy-monkey-purple.png")
+				"Red":
+					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-monkey/Toy-monkey-red.png")
+				"Yellow":
+					texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-monkey/Toy-monkey-yellow.png")
+	pass # Replace with function body.
