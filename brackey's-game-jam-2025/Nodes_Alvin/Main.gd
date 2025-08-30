@@ -41,20 +41,20 @@ func _on_detect_area_area_entered(area: Area2D) -> void:
 	#var favType = "Bird"
 	#var favSize = "Medium"
 	#var favColour = "Red"
-
-	
+	#$SoundEffects.set_stream("res://Gabe Assets/413629__djlprojects__video-game-sfx-positive-action-long-tail.wav")
+	$SoundEffects.play()
 	var ball = get_node(area.get_path())
 	var totalScore = ball.toyWieght 
 	
 	#Checking her favorites for each scored toy
 	if ball.toySize == favSize:
-		totalScore += 5
+		totalScore += 10
 	
 	if ball.toyType == favType:
-		totalScore += 5
+		totalScore += 10
 	
 	if ball.toyColour == favColour:
-		totalScore += 5
+		totalScore += 10
 		
 	var crane = get_node($"../Crane".get_path())
 	
@@ -92,5 +92,5 @@ func _on_detect_area_area_entered(area: Area2D) -> void:
 		
 func resetProgressBar(level):
 	$ProgressBar.value = 0
-	$ProgressBar.max_value = 100 * level
+	$ProgressBar.max_value = 75 * level
 	pass

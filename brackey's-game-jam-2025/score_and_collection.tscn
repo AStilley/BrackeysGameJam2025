@@ -1,10 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://grb1qkthhtwl"]
+[gd_scene load_steps=3 format=3 uid="uid://grb1qkthhtwl"]
 
-[ext_resource type="Texture2D" uid="uid://bsgwjswpoheab" path="res://Assets_Alvin/Sprites/Score Screen WIP.png" id="1_40w6s"]
+[ext_resource type="Texture2D" uid="uid://cg51slojtwll" path="res://Assets_Alvin/Sprites/testColor.png" id="1_cfjmf"]
+[ext_resource type="Texture2D" uid="uid://b2p702flti1il" path="res://Assets_Alvin/Sprites/Shelves/Single-Shelf-Long.png" id="2_cfjmf"]
 
 [node name="ScoreAndCollection" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(574.75, 324.5)
-scale = Vector2(1.50657, 1.49535)
-texture = ExtResource("1_40w6s")
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(537, 314)
+scale = Vector2(1.57206, 1.29846)
+texture = ExtResource("1_cfjmf")
+
+[node name="Shelves" type="Sprite2D" parent="."]
+position = Vector2(575, 204)
+texture = ExtResource("2_cfjmf")
+
+[node name="Shelves2" type="Sprite2D" parent="."]
+position = Vector2(575, 382)
+texture = ExtResource("2_cfjmf")
+
+[node name="Shelves3" type="Sprite2D" parent="."]
+position = Vector2(575, 566)
+texture = ExtResource("2_cfjmf")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://defstt5vlqxb1"
-path="res://.godot/imported/Crane-machine-screen-reference.png-76cba6ea1e353349c73b2cebd555258d.ctex"
+uid="uid://beb3a71hw3p8j"
+path="res://.godot/imported/4.png-255909623f8e6281b85889a736da2909.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets_Alvin/Sprites/Crane-machine-screen-reference.png"
-dest_files=["res://.godot/imported/Crane-machine-screen-reference.png-76cba6ea1e353349c73b2cebd555258d.ctex"]
+source_file="res://Assets_Alvin/Sprites/Numbers/4.png"
+dest_files=["res://.godot/imported/4.png-255909623f8e6281b85889a736da2909.ctex"]
 
 [params]
 

@@ -35,7 +35,6 @@ func restartLevel():
 	levelCompleted = false
 func _on_toy_detect_level_complete() -> void:
 	
-		
 	levelCompleted = true
 	level += 1
 	$"Left Hand".ring(level)
@@ -45,3 +44,12 @@ func _on_toy_detect_level_complete() -> void:
 
 	#main screen should move over 1 screen to the collection screen
 	pass # Replace with function body.
+
+
+func _on_heart_mouse_entered() -> void:
+	$IdealToyVision.visible = true
+
+
+
+func _on_heart_mouse_exited() -> void:
+	$IdealToyVision.visible = false

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd88hqtngln85"
-path="res://.godot/imported/example collection.png-eaa19352dbb43a41619c381b87b23bc7.ctex"
+uid="uid://bs76fpfh74gss"
+path="res://.godot/imported/7.png-65caaf370b874f9ce97712c8ec9e9f21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets_Alvin/Sprites/example collection.png"
-dest_files=["res://.godot/imported/example collection.png-eaa19352dbb43a41619c381b87b23bc7.ctex"]
+source_file="res://Assets_Alvin/Sprites/Numbers/7.png"
+dest_files=["res://.godot/imported/7.png-65caaf370b874f9ce97712c8ec9e9f21.ctex"]
 
 [params]
 

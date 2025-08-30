@@ -87,7 +87,7 @@ func setToy(type, size, color):
 			toyWieght = 20
 		"Large":
 			scale = Vector2(0.375,0.375)
-			toyWieght = 40
+			toyWieght = 30
 	match type:
 		"Bird":
 			match toyColour: 

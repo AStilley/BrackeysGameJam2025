@@ -1,25 +1,41 @@
-[gd_scene load_steps=16 format=3 uid="uid://cy486p43w4iie"]
+[gd_scene load_steps=25 format=3 uid="uid://cy486p43w4iie"]
 
 [ext_resource type="PackedScene" uid="uid://cnp3eciqdb20r" path="res://Nodes_Alvin/crane.tscn" id="1_4g2d3"]
 [ext_resource type="Script" uid="uid://ddihn68dwi2si" path="res://Nodes_Alvin/crane_machine_level.gd" id="1_52bq2"]
 [ext_resource type="PackedScene" uid="uid://bj7kdb2imyfyt" path="res://Nodes_Alvin/test_toy.tscn" id="2_02q7i"]
 [ext_resource type="PackedScene" uid="uid://nbwnpde4n51i" path="res://Nodes_Alvin/ToyDetect.tscn" id="4_7bdnx"]
+[ext_resource type="Texture2D" uid="uid://hg7fhhgmfktx" path="res://Assets_Alvin/Sprites/Token.png" id="4_b32m2"]
 [ext_resource type="Texture2D" uid="uid://xq2gx1mfuco3" path="res://Assets_Alvin/Sprites/Tank-bg-placeholder.png" id="5_bassv"]
+[ext_resource type="Script" uid="uid://cm60eu2tl0a8e" path="res://Nodes_Alvin/token.gd" id="5_c3ty7"]
+[ext_resource type="Texture2D" uid="uid://b5rug8h1g1xjx" path="res://Assets_Alvin/Sprites/Numbers/0.png" id="5_iphec"]
+[ext_resource type="Texture2D" uid="uid://dr371je8sfabh" path="res://Assets_Alvin/Sprites/Shelves/Prize-Corner-Shelf.png" id="5_k3wqn"]
 [ext_resource type="Texture2D" uid="uid://c017bmsbrfk6k" path="res://Assets_Alvin/Sprites/Crane Claw Sprites/Gold-claw-prize-redeem.png" id="6_7yg4k"]
 [ext_resource type="Texture2D" uid="uid://c6vlk4o8c4bm1" path="res://Assets_Alvin/Sprites/Crane Claw Sprites/Red-claw-prize-redeem.png" id="7_hjspi"]
 [ext_resource type="Script" uid="uid://buvnmgxbil117" path="res://Nodes_Alvin/ideal_toy.gd" id="8_hjspi"]
 [ext_resource type="Texture2D" uid="uid://coendbjx1hwww" path="res://Assets_Alvin/Sprites/Toy Sprites/toy-bird/toy-bird-bklue.png" id="8_pf5i6"]
 [ext_resource type="Texture2D" uid="uid://3qwttjd1qvpx" path="res://Assets_Alvin/Sprites/M.png" id="10_57qxr"]
+[ext_resource type="Texture2D" uid="uid://dnbdghjbs78fl" path="res://Assets_Alvin/Sprites/Numbers/3.png" id="10_mwefh"]
 [ext_resource type="Script" uid="uid://4gu2etdjq6ya" path="res://Nodes_Alvin/right_hand.gd" id="12_312ma"]
 [ext_resource type="Texture2D" uid="uid://ykylqxk3ttgg" path="res://Assets_Alvin/Sprites/Right Hand/RH-default.png" id="12_ocfv0"]
+[ext_resource type="Texture2D" uid="uid://caylhicrdwoij" path="res://Assets_Alvin/Sprites/ThoughtBubble.png" id="12_s6bdf"]
 [ext_resource type="Texture2D" uid="uid://dujsndu8o1xdw" path="res://Assets_Alvin/Sprites/Left Hand/LH-default-ring.png" id="13_id0nc"]
 [ext_resource type="Script" uid="uid://drr7fbdhnwmw7" path="res://Nodes_Alvin/left_hand.gd" id="13_ocfv0"]
+[ext_resource type="Script" uid="uid://4nu5n41f8k5q" path="res://Nodes_Alvin/heart.gd" id="17_an256"]
+[ext_resource type="Texture2D" uid="uid://bcnf4c8oresf2" path="res://Assets_Alvin/Sprites/tempheart.png" id="17_x1ps7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52bq2"]
 size = Vector2(523.625, 20)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_an256"]
+radius = 216.0
+
 [node name="CraneMachineLevel" type="Node2D"]
 script = ExtResource("1_52bq2")
+
+[node name="Prize Corner Background" type="Sprite2D" parent="."]
+position = Vector2(1057, 321)
+scale = Vector2(0.575, 0.575)
+texture = ExtResource("5_k3wqn")
 
 [node name="CraneTank" type="Sprite2D" parent="."]
 position = Vector2(576, 311)
@@ -34,9 +50,6 @@ position = Vector2(160, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(638.188, 500)
 shape = SubResource("RectangleShape2D_52bq2")
-
-[node name="ToyDetect" parent="." instance=ExtResource("4_7bdnx")]
-position = Vector2(169, 398)
 
 [node name="TestToy" parent="." instance=ExtResource("2_02q7i")]
 position = Vector2(353, 237)
@@ -58,48 +71,95 @@ scale = Vector2(0.25, 0.25)
 position = Vector2(718, 307)
 scale = Vector2(0.25, 0.25)
 
+[node name="ToyDetect" parent="." instance=ExtResource("4_7bdnx")]
+position = Vector2(169, 482)
+
+[node name="Token" type="Sprite2D" parent="."]
+position = Vector2(1020, 56)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("4_b32m2")
+script = ExtResource("5_c3ty7")
+
+[node name="FirstDigit" type="Sprite2D" parent="Token"]
+position = Vector2(338.001, 0)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_iphec")
+
+[node name="SecondDigit" type="Sprite2D" parent="Token"]
+position = Vector2(540, 0)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_iphec")
+
 [node name="Gold Claw" type="Button" parent="."]
-offset_left = 1015.0
-offset_top = 74.0
-offset_right = 1183.0
-offset_bottom = 242.0
+offset_left = 1020.0
+offset_top = 188.0
+offset_right = 1188.0
+offset_bottom = 356.0
 scale = Vector2(0.5, 0.5)
 icon = ExtResource("6_7yg4k")
 
-[node name="TextEdit" type="TextEdit" parent="Gold Claw"]
-layout_mode = 0
-offset_left = 44.0
-offset_top = 174.0
-offset_right = 122.0
-offset_bottom = 212.0
-text = "3 Tokens"
+[node name="Token" type="Sprite2D" parent="Gold Claw"]
+position = Vector2(147.2, 163.2)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_b32m2")
+
+[node name="Number" type="Sprite2D" parent="Gold Claw/Token"]
+position = Vector2(-19.355, -6.45166)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("10_mwefh")
 
 [node name="Red Claw" type="Button" parent="."]
 offset_left = 1019.0
-offset_top = 282.0
+offset_top = 295.0
 offset_right = 1187.0
-offset_bottom = 450.0
+offset_bottom = 463.0
 scale = Vector2(0.5, 0.5)
 icon = ExtResource("7_hjspi")
 
-[node name="TextEdit" type="TextEdit" parent="Red Claw"]
-layout_mode = 0
-offset_left = 44.0
-offset_top = 174.0
-offset_right = 122.0
-offset_bottom = 212.0
-text = "3 Tokens"
+[node name="Token" type="Sprite2D" parent="Red Claw"]
+position = Vector2(158.4, 174.4)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_b32m2")
 
-[node name="Ideal Toy" type="Sprite2D" parent="."]
-position = Vector2(1066, 460)
+[node name="Number" type="Sprite2D" parent="Red Claw/Token"]
+position = Vector2(-19.355, -6.45166)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("10_mwefh")
+
+[node name="IdealToyVision" type="Node2D" parent="."]
+visible = false
+position = Vector2(814.541, 352.75)
+
+[node name="ThoughtBubble" type="Sprite2D" parent="IdealToyVision"]
+scale = Vector2(0.463495, 0.463496)
+texture = ExtResource("12_s6bdf")
+
+[node name="Ideal Toy" type="Sprite2D" parent="IdealToyVision"]
+position = Vector2(-28.0001, 0)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("8_pf5i6")
 script = ExtResource("8_hjspi")
 
-[node name="Size Letter" type="Sprite2D" parent="Ideal Toy"]
+[node name="Size Letter" type="Sprite2D" parent="IdealToyVision/Ideal Toy"]
 position = Vector2(180, 188)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_57qxr")
+
+[node name="Sprite2D" type="Sprite2D" parent="IdealToyVision/Ideal Toy"]
+
+[node name="Heart" type="Area2D" parent="."]
+position = Vector2(164, 535)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("17_an256")
+
+[node name="Sprite2D" type="Sprite2D" parent="Heart"]
+position = Vector2(3568, -272)
+scale = Vector2(0.545, 0.66)
+texture = ExtResource("17_x1ps7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Heart"]
+position = Vector2(3568, -268)
+shape = SubResource("CircleShape2D_an256")
 
 [node name="Right Hand" type="Sprite2D" parent="."]
 z_index = 1
@@ -117,8 +177,10 @@ script = ExtResource("13_ocfv0")
 
 [connection signal="dropToy" from="Crane" to="TestToy" method="_on_crane_drop_toy"]
 [connection signal="checkTokens" from="ToyDetect" to="Crane" method="_on_toy_detect_check_tokens"]
-[connection signal="favoriteToy" from="ToyDetect" to="Ideal Toy" method="_on_toy_detect_favorite_toy"]
+[connection signal="favoriteToy" from="ToyDetect" to="IdealToyVision/Ideal Toy" method="_on_toy_detect_favorite_toy"]
 [connection signal="levelComplete" from="ToyDetect" to="." method="_on_toy_detect_level_complete"]
 [connection signal="levelComplete" from="ToyDetect" to="Crane" method="_on_toy_detect_level_complete"]
 [connection signal="button_down" from="Gold Claw" to="Crane" method="_on_gold_claw_button_down"]
 [connection signal="button_down" from="Red Claw" to="Crane" method="_on_red_claw_button_down"]
+[connection signal="mouse_entered" from="Heart" to="." method="_on_heart_mouse_entered"]
+[connection signal="mouse_exited" from="Heart" to="." method="_on_heart_mouse_exited"]

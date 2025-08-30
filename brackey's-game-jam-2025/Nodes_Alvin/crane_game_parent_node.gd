@@ -55,7 +55,7 @@ func switchToScreen():
 		5: #game over
 			#print("game over")
 			gameOverOn()
-			craneMachineOff()
+			#craneMachineOff()
 			mainMenuOff()
 			score_and_collectionOff()
 func craneMachineOn():
@@ -89,9 +89,17 @@ func score_and_collectionOn():
 func score_and_collectionOff():
 	score_and_collection.visible = false
 	score_and_collection.set_process(false)
+	Globals.ScoredToysType = []
+	Globals.ScoredToysSize = []
+	Globals.ScoredToysColour = []
+	Globals.i = 0
 func gameOverOn():
 	game_over.visible = true
 	game_over.set_process(true)
+	Globals.ScoredToysType = []
+	Globals.ScoredToysSize = []
+	Globals.ScoredToysColour = []
+	Globals.i = 0
 func gameOverOff():
 	game_over.visible = false
 	game_over.set_process(false)

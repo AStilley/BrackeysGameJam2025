@@ -1,26 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://nbwnpde4n51i"]
+[gd_scene load_steps=6 format=3 uid="uid://nbwnpde4n51i"]
 
 [ext_resource type="Script" uid="uid://c5wqia1i2xeug" path="res://Nodes_Alvin/Main.gd" id="1_tkdh7"]
-[ext_resource type="Script" uid="uid://o5bnob70e001" path="res://Nodes_Alvin/progress_bar.gd" id="2_n3jw1"]
+[ext_resource type="Texture2D" uid="uid://cg51slojtwll" path="res://Assets_Alvin/Sprites/testColor.png" id="2_n3jw1"]
 [ext_resource type="Texture2D" uid="uid://cuf40glimnv8e" path="res://Robert trash pile/icon.svg" id="3_knifv"]
+[ext_resource type="AudioStream" uid="uid://c15j6jx0lv6am" path="res://Gabe Assets/413629__djlprojects__video-game-sfx-positive-action-long-tail.wav" id="4_n3jw1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tkdh7"]
-radius = 78.0
+radius = 85.0059
 
 [node name="ToyDetect" type="Node2D"]
 position = Vector2(67, 596)
 script = ExtResource("1_tkdh7")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = 558.0
-offset_top = -333.0
-offset_right = 659.0
-offset_bottom = -256.0
-script = ExtResource("2_n3jw1")
+[node name="ProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -40.0
+offset_top = -215.0
+offset_bottom = -175.0
+scale = Vector2(0.875199, 0.187842)
+texture_progress = ExtResource("2_n3jw1")
 
 [node name="detectArea" type="Area2D" parent="." groups=["Detect"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="detectArea"]
+visible = false
 position = Vector2(-0.999878, -0.999969)
 scale = Vector2(0.492187, 0.511719)
 texture = ExtResource("3_knifv")
@@ -28,6 +30,9 @@ texture = ExtResource("3_knifv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectArea"]
 position = Vector2(-1, -1)
 shape = SubResource("CircleShape2D_tkdh7")
+
+[node name="SoundEffects" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_n3jw1")
 
 [connection signal="ProgressChange" from="." to="." method="_on_progress_change"]
 [connection signal="area_entered" from="detectArea" to="." method="_on_detect_area_area_entered"]

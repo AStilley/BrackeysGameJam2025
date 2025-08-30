@@ -168,13 +168,13 @@ func reset_tokens():
 
 
 func _on_gold_claw_button_down() -> void:
-	if currentCraneType != "Gold" and tokens > 3:
+	if currentCraneType != "Gold" and tokens >= 3:
 		currentCraneType = "Gold"
 		tokens -= 3
 		print("Tokens: ", tokens)
 		#lose 3 tokens
 func _on_red_claw_button_down() -> void:
-	if currentCraneType != "Sticky" and tokens > 3:
+	if currentCraneType != "Sticky" and tokens >= 3:
 		currentCraneType = "Sticky"
 		tokens -= 3
 		print("Tokens: ", tokens)
