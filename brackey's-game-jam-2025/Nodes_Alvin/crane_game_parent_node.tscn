@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmsf72xefdqb"]
+[gd_scene load_steps=7 format=3 uid="uid://dmsf72xefdqb"]
 
 [ext_resource type="Script" uid="uid://bvdkeot5sw57r" path="res://Nodes_Alvin/crane_game_parent_node.gd" id="1_hn4cn"]
 [ext_resource type="PackedScene" uid="uid://cy486p43w4iie" path="res://Nodes_Alvin/crane_machine_level.tscn" id="1_xehnx"]
+[ext_resource type="Texture2D" uid="uid://bd88hqtngln85" path="res://Assets_Alvin/Sprites/example collection.png" id="3_hn4cn"]
+[ext_resource type="Texture2D" uid="uid://beuwhfshc28vx" path="res://Assets_Alvin/Sprites/Game Over Screen/GameOverTitle.png" id="4_81aif"]
+[ext_resource type="Texture2D" uid="uid://cniydfwxw6uh" path="res://Assets_Alvin/Sprites/Game Over Screen/MainMenu.png" id="5_x8sla"]
+[ext_resource type="Texture2D" uid="uid://cklhcp8gp2c2v" path="res://Assets_Alvin/Sprites/Game Over Screen/Retry.png" id="6_556vl"]
 
 [node name="CraneGameParentNode" type="Node2D"]
 script = ExtResource("1_hn4cn")
@@ -28,4 +32,41 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ScoreAndCollection" type="Node2D" parent="."]
 
+[node name="Sprite2D" type="Sprite2D" parent="ScoreAndCollection"]
+position = Vector2(574, 323)
+texture = ExtResource("3_hn4cn")
+
+[node name="Next" type="Button" parent="ScoreAndCollection"]
+offset_left = 811.0
+offset_top = 524.0
+offset_right = 819.0
+offset_bottom = 532.0
+scale = Vector2(18.883, 8.69959)
+
+[node name="Game Over" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Game Over"]
+position = Vector2(571, 232)
+scale = Vector2(0.276562, 0.276562)
+texture = ExtResource("4_81aif")
+
+[node name="Main Menu" type="Button" parent="Game Over"]
+offset_left = 461.0
+offset_top = 349.0
+offset_right = 1365.0
+offset_bottom = 485.0
+scale = Vector2(0.25, 0.25)
+icon = ExtResource("5_x8sla")
+
+[node name="Retry" type="Button" parent="Game Over"]
+offset_left = 508.0
+offset_top = 406.0
+offset_right = 1028.0
+offset_bottom = 542.0
+scale = Vector2(0.25, 0.25)
+icon = ExtResource("6_556vl")
+
 [connection signal="pressed" from="Main/Start" to="." method="_on_start_pressed"]
+[connection signal="button_down" from="ScoreAndCollection/Next" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Game Over/Main Menu" to="." method="_on_main_menu_button_down"]
+[connection signal="button_down" from="Game Over/Retry" to="." method="_on_retry_button_down"]

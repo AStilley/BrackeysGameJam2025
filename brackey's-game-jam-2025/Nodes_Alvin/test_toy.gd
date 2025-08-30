@@ -1,5 +1,5 @@
 extends Area2D
-var _gravity = 900
+#var _gravity = 900
 var velocity = Vector2()
 var originalParent
 var gravitySwitch = true
@@ -8,7 +8,8 @@ var gravitySwitch = true
 var toy_floor = 400
 
 var toyWieght = 20
-
+var originalX
+var originalY
 #Set this to true to stack toys on each other
 var debug_gravity = false
 
@@ -20,16 +21,14 @@ var toyType = "Bird"
 var toySize = "Large"
 var toyColour = "Blue"
 
-var favType
-var favSize
-var favColor
-var favPosition
 @onready var toy_sprite: Sprite2D = $ToySprite
 
 
-
-
 func _ready() -> void:
+	
+	print(name)
+	originalX = position.x
+	originalY = position.y
 	originalParent = self.get_parent()
 	setToy(toyTypeList.pick_random(),sizeTypeList.pick_random(),colorTypeList.pick_random())
 func _physics_process(delta: float) -> void:
@@ -72,6 +71,10 @@ func _on_crane_drop_toy(toy) -> void:
 		#print(get_parent())
 		toy.prize = false
 func setToy(type, size, color):
+	if randi_range(1,2) == 2:
+		$ToySprite.flip_h = true
+	else:
+		$ToySprite.flip_h = false	
 	toyType = type
 	toySize = size
 	toyColour = color
@@ -159,16 +162,9 @@ func setToy(type, size, color):
 				"Yellow":
 					toy_sprite.texture = load("res://Assets_Alvin/Sprites/Toy Sprites/toy-monkey/Toy-monkey-yellow.png")	
 
-
+func resetPosition():
+	position = Vector2(originalX, originalY)
+	setToy(toyTypeList.pick_random(),sizeTypeList.pick_random(),colorTypeList.pick_random())	
 func _on_area_entered(area: Area2D) -> void:
 	if !area.is_in_group("Detect") and debug_gravity:
 		gravitySwitch = false
-
-
-func _on_ideal_toy_force_existence(type: Variant, size: Variant, toyColor: Variant, num: Variant) -> void:
-	#print(name)
-	favType
-	favSize
-	favColor
-	print("Ideal Toy is on: ",str("TestToy",num))	
-	#get_parent().get_node(str("TestToy",num)).setToy(type, size, toyColor)
