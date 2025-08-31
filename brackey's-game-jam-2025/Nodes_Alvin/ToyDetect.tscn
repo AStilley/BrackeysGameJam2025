@@ -14,15 +14,16 @@ position = Vector2(67, 596)
 script = ExtResource("1_tkdh7")
 
 [node name="ProgressBar" type="TextureProgressBar" parent="."]
-offset_left = 808.0
+offset_left = 805.0
 offset_top = -96.0
-offset_right = 968.0
+offset_right = 965.0
 offset_bottom = 64.0
 fill_mode = 4
 texture_under = ExtResource("2_knifv")
 texture_progress = ExtResource("3_dxgpr")
 
 [node name="detectArea" type="Area2D" parent="." groups=["Detect"]]
+position = Vector2(-16, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="detectArea"]
 visible = false
@@ -31,7 +32,7 @@ scale = Vector2(0.492187, 0.511719)
 texture = ExtResource("3_knifv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectArea"]
-position = Vector2(-12, -1)
+position = Vector2(-12, -49)
 shape = SubResource("CircleShape2D_tkdh7")
 
 [node name="SoundEffects" type="AudioStreamPlayer" parent="."]

@@ -166,19 +166,19 @@ func checkClawType():
 	#	craneTexture = closeClaw
 	$CraneSprite.texture = craneTexture
 func reset_tokens():
-	tokens = 10
+	tokens = 15
 
 
 func _on_gold_claw_button_down() -> void:
-	if currentCraneType != "Gold" and tokens >= 3:
+	if currentCraneType != "Gold" and tokens >= 5:
 		currentCraneType = "Gold"
-		tokens -= 3
+		tokens -= 5
 		print("Tokens: ", tokens)
 		#lose 3 tokens
 func _on_red_claw_button_down() -> void:
-	if currentCraneType != "Sticky" and tokens >= 3:
+	if currentCraneType != "Sticky" and tokens >= 5:
 		currentCraneType = "Sticky"
-		tokens -= 3
+		tokens -= 5
 		print("Tokens: ", tokens)
 		#lose 3 tokens
 func craneReset():

@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Brackey's Game Jam 2025"
+config/name="Get A Grip"
 run/main_scene="uid://dmsf72xefdqb"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://coendbjx1hwww"
 
 [autoload]
 

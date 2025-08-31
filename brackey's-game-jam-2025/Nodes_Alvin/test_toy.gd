@@ -5,7 +5,7 @@ var originalParent
 var gravitySwitch = true
 @export var prize = false
 
-var toy_floor = 400
+var toy_floor = 425
 
 var toyWieght = 20
 var originalX

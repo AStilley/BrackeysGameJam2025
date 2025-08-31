@@ -1,17 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://dmsf72xefdqb"]
+[gd_scene load_steps=14 format=3 uid="uid://dmsf72xefdqb"]
 
 [ext_resource type="Script" uid="uid://bvdkeot5sw57r" path="res://Nodes_Alvin/crane_game_parent_node.gd" id="1_hn4cn"]
 [ext_resource type="PackedScene" uid="uid://cy486p43w4iie" path="res://Nodes_Alvin/crane_machine_level.tscn" id="1_xehnx"]
-[ext_resource type="Texture2D" uid="uid://4oc7gfbvy8f6" path="res://Assets_Alvin/Sprites/Main Menu/Title-Card.png" id="2_556vl"]
-[ext_resource type="Texture2D" uid="uid://dr67h5stat132" path="res://Assets_Alvin/Sprites/Main Menu/MainMenu-Screen.png" id="2_vqo38"]
-[ext_resource type="Texture2D" uid="uid://cfvfqrype6dkf" path="res://Assets_Alvin/Sprites/Main Menu/NewGame.png" id="3_85grg"]
+[ext_resource type="Texture2D" uid="uid://2xoqpwypimf1" path="res://Assets_Alvin/Sprites/Main Menu/GetAGripCover.png" id="2_mn8bq"]
 [ext_resource type="PackedScene" uid="uid://grb1qkthhtwl" path="res://score_and_collection.tscn" id="3_x8sla"]
+[ext_resource type="Texture2D" uid="uid://nlmem53ttoqv" path="res://Assets_Alvin/Sprites/Main Menu/Start.png" id="4_2tvv5"]
 [ext_resource type="Texture2D" uid="uid://beuwhfshc28vx" path="res://Assets_Alvin/Sprites/Game Over Screen/GameOverTitle.png" id="4_81aif"]
+[ext_resource type="Texture2D" uid="uid://cqpoqqv887dcy" path="res://Assets_Alvin/Sprites/Main Menu/rate.png" id="5_1mtxp"]
+[ext_resource type="FontFile" uid="uid://dqoplngdh5kc3" path="res://Assets_Alvin/Kodchasan-Regular.ttf" id="5_2tvv5"]
 [ext_resource type="Texture2D" uid="uid://cniydfwxw6uh" path="res://Assets_Alvin/Sprites/Game Over Screen/MainMenu.png" id="5_x8sla"]
 [ext_resource type="Texture2D" uid="uid://cklhcp8gp2c2v" path="res://Assets_Alvin/Sprites/Game Over Screen/Retry.png" id="6_556vl"]
 [ext_resource type="PackedScene" uid="uid://dblddv4nx7whc" path="res://ScoreToy.tscn" id="7_556vl"]
 [ext_resource type="Texture2D" uid="uid://d0u03lmqdnd3q" path="res://Assets_Alvin/Sprites/Continue.png" id="7_fxcit"]
-[ext_resource type="Texture2D" uid="uid://cfr543tbqiinv" path="res://icon.svg" id="12_mn8bq"]
+[ext_resource type="Texture2D" uid="uid://cgte82n4hbkfd" path="res://Assets_Alvin/Sprites/Ending/EndingScreen.png" id="13_2tvv5"]
 
 [node name="CraneGameParentNode" type="Node2D"]
 script = ExtResource("1_hn4cn")
@@ -20,29 +21,32 @@ script = ExtResource("1_hn4cn")
 visible = false
 
 [node name="Background" type="Sprite2D" parent="Main"]
-position = Vector2(571, 320)
-scale = Vector2(0.609722, 0.609722)
-texture = ExtResource("2_vqo38")
-
-[node name="Game Title" type="Sprite2D" parent="Main"]
-position = Vector2(449, 147)
-scale = Vector2(0.32313, 0.32313)
-texture = ExtResource("2_556vl")
+position = Vector2(580.222, 319.375)
+scale = Vector2(0.304282, 0.304282)
+texture = ExtResource("2_mn8bq")
 
 [node name="Start" type="Button" parent="Main"]
-offset_left = 96.0
-offset_top = 322.0
-offset_right = 936.0
-offset_bottom = 458.0
-scale = Vector2(0.5, 0.5)
-icon = ExtResource("3_85grg")
+offset_left = 488.0
+offset_top = 456.0
+offset_right = 1072.0
+offset_bottom = 720.0
+scale = Vector2(0.3, 0.3)
+icon = ExtResource("4_2tvv5")
 metadata/_edit_use_anchors_ = true
 
+[node name="Panel" type="Panel" parent="Main"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 944.0
+offset_top = 466.0
+offset_right = 1136.0
+offset_bottom = 640.0
+
 [node name="RichTextLabel" type="RichTextLabel" parent="Main"]
-offset_left = 10.0
-offset_top = 448.0
-offset_right = 198.0
-offset_bottom = 628.0
+offset_left = 952.0
+offset_top = 472.0
+offset_right = 1140.0
+offset_bottom = 642.0
+theme_override_fonts/normal_font = ExtResource("5_2tvv5")
 theme_override_font_sizes/normal_font_size = 25
 text = "Made By:
 Alvin Stilley
@@ -51,10 +55,15 @@ Robert Allison
 Gabriel Pierre
 "
 
+[node name="Sprite2D" type="Sprite2D" parent="Main"]
+position = Vector2(576, 552)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_1mtxp")
+
 [node name="CraneMachineLevel" parent="." instance=ExtResource("1_xehnx")]
-visible = false
 
 [node name="ScoreAndCollection" parent="." instance=ExtResource("3_x8sla")]
+visible = false
 
 [node name="Score Toy1" parent="ScoreAndCollection" groups=["ScoredToy"] instance=ExtResource("7_556vl")]
 position = Vector2(190, 87)
@@ -102,10 +111,10 @@ position = Vector2(764, 435)
 position = Vector2(961, 438)
 
 [node name="Next2" type="Button" parent="ScoreAndCollection"]
-offset_left = 429.0
-offset_top = 562.0
-offset_right = 1205.0
-offset_bottom = 698.0
+offset_left = 832.0
+offset_top = 592.0
+offset_right = 1608.0
+offset_bottom = 728.0
 scale = Vector2(0.415469, 0.415469)
 icon = ExtResource("7_fxcit")
 
@@ -118,18 +127,18 @@ scale = Vector2(0.276562, 0.276562)
 texture = ExtResource("4_81aif")
 
 [node name="Main Menu" type="Button" parent="Game Over"]
-offset_left = 461.0
-offset_top = 349.0
-offset_right = 1365.0
-offset_bottom = 485.0
+offset_left = 440.0
+offset_top = 408.0
+offset_right = 1344.0
+offset_bottom = 544.0
 scale = Vector2(0.25, 0.25)
 icon = ExtResource("5_x8sla")
 
 [node name="Retry" type="Button" parent="Game Over"]
-offset_left = 508.0
-offset_top = 406.0
-offset_right = 1028.0
-offset_bottom = 542.0
+offset_left = 488.0
+offset_top = 360.0
+offset_right = 1008.0
+offset_bottom = 496.0
 scale = Vector2(0.25, 0.25)
 icon = ExtResource("6_556vl")
 
@@ -143,13 +152,16 @@ visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="GameEnd"]
 position = Vector2(588, 330)
-texture = ExtResource("12_mn8bq")
+scale = Vector2(0.311156, 0.311156)
+texture = ExtResource("13_2tvv5")
 
 [node name="Button" type="Button" parent="GameEnd"]
-offset_left = 530.0
-offset_top = 275.0
-offset_right = 640.0
-offset_bottom = 388.0
+offset_left = 888.0
+offset_top = 608.0
+offset_right = 1792.0
+offset_bottom = 744.0
+scale = Vector2(0.294493, 0.294493)
+icon = ExtResource("5_x8sla")
 
 [connection signal="ScoreToy" from="." to="ScoreAndCollection/Score Toy1" method="_on_crane_game_parent_node_score_toy"]
 [connection signal="pressed" from="Main/Start" to="." method="_on_start_pressed"]

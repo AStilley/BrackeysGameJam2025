@@ -97,7 +97,7 @@ func resetProgressBar(level):
 		2:
 			$ProgressBar.texture_progress = load("res://Assets_Alvin/Sprites/Hearts/Heart_2.png")
 		3:
-			$ProgressBar.texture_progress = load("res://Assets_Alvin/Sprites/Hearts/Heart_3.png")
+			$ProgressBar.texture_progress = load("res://Assets_Alvin/Sprites/Hearts/Heart_4.png")
 	$ProgressBar.value = 0
-	$ProgressBar.max_value = 75 * level
+	$ProgressBar.max_value = 120 * level
 	pass

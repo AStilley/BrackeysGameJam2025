@@ -30,12 +30,12 @@ func fullReset():
 func restartLevel():
 	match Globals.LevelCount:
 		1:
-			$CraneTank.texture = load("res://Assets_Alvin/Sprites/Hearts/Heart_1.png")
+			$CraneTank.texture = load("res://Assets_Alvin/Sprites/CraneBackgrounds/Crane-2015.png")
 		2:
-			$CraneTank.texture = load("res://Assets_Alvin/Sprites/Hearts/Heart_2.png")
+			$CraneTank.texture = load("res://Assets_Alvin/Sprites/CraneBackgrounds/Crane-2019.png")
 		3:
-			$CraneTank.texture = load("res://Assets_Alvin/Sprites/Hearts/Heart_3.png")
-	print("test")
+			$CraneTank.texture = load("res://Assets_Alvin/Sprites/CraneBackgrounds/Crane-2025.png")
+	#print("test")
 	$Crane.craneReset()
 	$ToyDetect.resetProgressBar(Globals.LevelCount)
 	get_tree().call_group("Toy","resetPosition")

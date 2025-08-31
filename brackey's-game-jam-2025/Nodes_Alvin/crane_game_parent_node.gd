@@ -112,6 +112,8 @@ func score_and_collectionOn():
 	
 	var listOfScoreToys = get_tree().get_nodes_in_group("ScoredToy")
 	get_tree().call_group("ScoredToy", "PrizeInvisible")
+	if Globals.i >15:
+		Globals.i = 15
 	for n in Globals.i:
 		listOfScoreToys[n]._on_crane_game_parent_node_score_toy(Globals.ScoredToysType[n],Globals.ScoredToysSize[n],Globals.ScoredToysColour[n])
 	#listOfScoreToys[Globals.i]._on_crane_game_parent_node_score_toy(Globals.ScoredToysType[Globals.i],Globals.ScoredToysSize[Globals.i],Globals.ScoredToysColour[Globals.i])
@@ -182,6 +184,8 @@ func _on_next_2_button_down():
 
 
 func _on_button_pressed():
+	#Winning End Button
+	$CraneMachineLevel.fullReset()
 	screen = 1
 	switchToScreen()
 	pass # Replace with function body.
