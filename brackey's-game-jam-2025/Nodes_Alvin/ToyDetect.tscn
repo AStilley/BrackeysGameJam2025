@@ -1,23 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://nbwnpde4n51i"]
+[gd_scene load_steps=7 format=3 uid="uid://nbwnpde4n51i"]
 
 [ext_resource type="Script" uid="uid://c5wqia1i2xeug" path="res://Nodes_Alvin/Main.gd" id="1_tkdh7"]
-[ext_resource type="Texture2D" uid="uid://cg51slojtwll" path="res://Assets_Alvin/Sprites/testColor.png" id="2_n3jw1"]
+[ext_resource type="Texture2D" uid="uid://bkifyi0h1vquy" path="res://Assets_Alvin/Sprites/Hearts/Heart_3.png" id="2_knifv"]
+[ext_resource type="Texture2D" uid="uid://dh5huthark88f" path="res://Assets_Alvin/Sprites/Hearts/Heart_1.png" id="3_dxgpr"]
 [ext_resource type="Texture2D" uid="uid://cuf40glimnv8e" path="res://Robert trash pile/icon.svg" id="3_knifv"]
-[ext_resource type="AudioStream" uid="uid://c15j6jx0lv6am" path="res://Gabe Assets/413629__djlprojects__video-game-sfx-positive-action-long-tail.wav" id="4_n3jw1"]
+[ext_resource type="AudioStream" uid="uid://b7jns36llj4u" path="res://Assets_Alvin/sounds/joyfulRing.mp3" id="5_knifv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tkdh7"]
-radius = 85.0059
+radius = 93.0054
 
 [node name="ToyDetect" type="Node2D"]
 position = Vector2(67, 596)
 script = ExtResource("1_tkdh7")
 
 [node name="ProgressBar" type="TextureProgressBar" parent="."]
-offset_left = -40.0
-offset_top = -215.0
-offset_bottom = -175.0
-scale = Vector2(0.875199, 0.187842)
-texture_progress = ExtResource("2_n3jw1")
+offset_left = 808.0
+offset_top = -96.0
+offset_right = 968.0
+offset_bottom = 64.0
+fill_mode = 4
+texture_under = ExtResource("2_knifv")
+texture_progress = ExtResource("3_dxgpr")
 
 [node name="detectArea" type="Area2D" parent="." groups=["Detect"]]
 
@@ -28,11 +31,12 @@ scale = Vector2(0.492187, 0.511719)
 texture = ExtResource("3_knifv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectArea"]
-position = Vector2(-1, -1)
+position = Vector2(-12, -1)
 shape = SubResource("CircleShape2D_tkdh7")
 
 [node name="SoundEffects" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_n3jw1")
+stream = ExtResource("5_knifv")
+volume_db = -13.757
 
 [connection signal="ProgressChange" from="." to="." method="_on_progress_change"]
 [connection signal="area_entered" from="detectArea" to="." method="_on_detect_area_area_entered"]

@@ -11,6 +11,9 @@ var screen = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Screen test")
+	$"Scene Themes".set_stream(load("res://Assets_Alvin/sounds/Main Menu.mp3"))
+	$"Scene Themes".play()
+	
 	mainMenuOn()
 	craneMachineOff()
 	score_and_collectionOff()
@@ -24,6 +27,7 @@ func _process(_delta: float) -> void:
 		screen += 1
 		print(screen)
 		switchToScreen()
+	
 
 func switchToScreen():
 	match screen:
@@ -36,7 +40,8 @@ func switchToScreen():
 			score_and_collectionOff()
 			gameOverOff()
 			gameWinOff()
-			
+			$"Scene Themes".set_stream(load("res://Assets_Alvin/sounds/Main Menu.mp3"))
+			$"Scene Themes".play()
 			pass
 		2:
 			#Whatever the current level is
@@ -45,6 +50,8 @@ func switchToScreen():
 			score_and_collectionOff()
 			gameOverOff()
 			gameWinOff()
+			$"Scene Themes".set_stream(load("res://Assets_Alvin/sounds/Gameplay.wav"))
+			$"Scene Themes".play()
 			pass
 		3:
 			#Whatever the current level is
@@ -53,6 +60,8 @@ func switchToScreen():
 			mainMenuOff()
 			gameOverOff()
 			gameWinOff()
+			$"Scene Themes".set_stream(load("res://Assets_Alvin/sounds/Collected.wav"))
+			$"Scene Themes".play()
 			pass
 		4:
 			screen = 1
@@ -65,6 +74,8 @@ func switchToScreen():
 			#craneMachineOff()
 			mainMenuOff()
 			score_and_collectionOff()
+			$"Scene Themes".set_stream(load("res://Assets_Alvin/sounds/GameEnd.mp3"))
+			$"Scene Themes".play()
 			
 		6: #Game Win
 			print("game win")
@@ -73,6 +84,8 @@ func switchToScreen():
 			craneMachineOff()
 			mainMenuOff()
 			score_and_collectionOff()
+			$"Scene Themes".set_stream(load("res://Assets_Alvin/sounds/GameEnd.mp3"))
+			$"Scene Themes".play()
 			
 			
 func gameWinOn():
@@ -160,7 +173,7 @@ func _on_retry_button_down() -> void:
 
 
 func _on_next_2_button_down():
-	if Globals.LevelCount == 2:
+	if Globals.LevelCount == 4:
 		screen = 6
 	else:
 		screen = 2
@@ -171,4 +184,9 @@ func _on_next_2_button_down():
 func _on_button_pressed():
 	screen = 1
 	switchToScreen()
+	pass # Replace with function body.
+
+
+func _on_scene_themes_finished():
+	$"Scene Themes".play()
 	pass # Replace with function body.

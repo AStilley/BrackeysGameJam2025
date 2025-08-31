@@ -17,6 +17,7 @@
 script = ExtResource("1_hn4cn")
 
 [node name="Main" type="Node2D" parent="."]
+visible = false
 
 [node name="Background" type="Sprite2D" parent="Main"]
 position = Vector2(571, 320)
@@ -54,58 +55,57 @@ Gabriel Pierre
 visible = false
 
 [node name="ScoreAndCollection" parent="." instance=ExtResource("3_x8sla")]
-visible = false
 
 [node name="Score Toy1" parent="ScoreAndCollection" groups=["ScoredToy"] instance=ExtResource("7_556vl")]
-position = Vector2(204, 145)
+position = Vector2(190, 87)
 
 [node name="Score Toy2" parent="ScoreAndCollection" groups=["ScoredToy"] instance=ExtResource("7_556vl")]
-position = Vector2(390, 145)
+position = Vector2(382, 90)
 
 [node name="Score Toy3" parent="ScoreAndCollection" groups=["ScoredToy"] instance=ExtResource("7_556vl")]
-position = Vector2(572, 145)
+position = Vector2(570, 92)
 
 [node name="Score Toy4" parent="ScoreAndCollection" groups=["ScoredToy"] instance=ExtResource("7_556vl")]
-position = Vector2(757, 145)
+position = Vector2(772, 95)
 
 [node name="Score Toy5" parent="ScoreAndCollection" groups=["ScoredToy"] instance=ExtResource("7_556vl")]
-position = Vector2(942, 146)
+position = Vector2(978, 92)
 
 [node name="Score Toy6" parent="ScoreAndCollection" groups=["ScoredToy"] instance=ExtResource("7_556vl")]
-position = Vector2(201, 323)
+position = Vector2(194, 259)
 
 [node name="Score Toy7" parent="ScoreAndCollection" groups=["ScoredToy"] instance=ExtResource("7_556vl")]
-position = Vector2(389, 323)
+position = Vector2(384, 259)
 
 [node name="Score Toy8" parent="ScoreAndCollection" groups=["ScoredToy"] instance=ExtResource("7_556vl")]
-position = Vector2(573, 324)
+position = Vector2(574, 260)
 
 [node name="Score Toy9" parent="ScoreAndCollection" groups=["ScoredToy"] instance=ExtResource("7_556vl")]
-position = Vector2(756, 324)
+position = Vector2(763, 263)
 
 [node name="Score Toy10" parent="ScoreAndCollection" groups=["ScoredToy"] instance=ExtResource("7_556vl")]
-position = Vector2(942, 326)
+position = Vector2(956, 261)
 
 [node name="Score Toy11" parent="ScoreAndCollection" groups=["ScoredToy"] instance=ExtResource("7_556vl")]
-position = Vector2(206, 504)
+position = Vector2(186, 431)
 
 [node name="Score Toy12" parent="ScoreAndCollection" groups=["ScoredToy"] instance=ExtResource("7_556vl")]
-position = Vector2(388, 501)
+position = Vector2(386, 428)
 
 [node name="Score Toy13" parent="ScoreAndCollection" groups=["ScoredToy"] instance=ExtResource("7_556vl")]
-position = Vector2(573, 502)
+position = Vector2(579, 437)
 
 [node name="Score Toy14" parent="ScoreAndCollection" groups=["ScoredToy"] instance=ExtResource("7_556vl")]
-position = Vector2(758, 503)
+position = Vector2(764, 435)
 
 [node name="Score Toy15" parent="ScoreAndCollection" groups=["ScoredToy"] instance=ExtResource("7_556vl")]
-position = Vector2(942, 504)
+position = Vector2(961, 438)
 
 [node name="Next2" type="Button" parent="ScoreAndCollection"]
-offset_left = 821.0
-offset_top = 582.0
-offset_right = 1597.0
-offset_bottom = 718.0
+offset_left = 429.0
+offset_top = 562.0
+offset_right = 1205.0
+offset_bottom = 698.0
 scale = Vector2(0.415469, 0.415469)
 icon = ExtResource("7_fxcit")
 
@@ -136,8 +136,10 @@ icon = ExtResource("6_556vl")
 [node name="Sound Effects" type="AudioStreamPlayer" parent="."]
 
 [node name="Scene Themes" type="AudioStreamPlayer" parent="."]
+volume_db = -6.559
 
 [node name="GameEnd" type="Node2D" parent="."]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="GameEnd"]
 position = Vector2(588, 330)
@@ -154,4 +156,5 @@ offset_bottom = 388.0
 [connection signal="button_down" from="ScoreAndCollection/Next2" to="." method="_on_next_2_button_down"]
 [connection signal="button_down" from="Game Over/Main Menu" to="." method="_on_main_menu_button_down"]
 [connection signal="button_down" from="Game Over/Retry" to="." method="_on_retry_button_down"]
+[connection signal="finished" from="Scene Themes" to="." method="_on_scene_themes_finished"]
 [connection signal="pressed" from="GameEnd/Button" to="." method="_on_button_pressed"]

@@ -28,16 +28,21 @@ func fullReset():
 	$"Left Hand".ring(Globals.LevelCount)
 	restartLevel()
 func restartLevel():
+	match Globals.LevelCount:
+		1:
+			$CraneTank.texture = load("res://Assets_Alvin/Sprites/Hearts/Heart_1.png")
+		2:
+			$CraneTank.texture = load("res://Assets_Alvin/Sprites/Hearts/Heart_2.png")
+		3:
+			$CraneTank.texture = load("res://Assets_Alvin/Sprites/Hearts/Heart_3.png")
 	print("test")
 	$Crane.craneReset()
 	$ToyDetect.resetProgressBar(Globals.LevelCount)
 	get_tree().call_group("Toy","resetPosition")
 	levelCompleted = false
 func _on_toy_detect_level_complete() -> void:
-	
 	levelCompleted = true
 	Globals.LevelCount += 1
-	
 	$"Left Hand".ring(Globals.LevelCount)
 	restartLevel()
 	print(Globals.LevelCount)
@@ -51,6 +56,25 @@ func _on_heart_mouse_entered() -> void:
 	$IdealToyVision.visible = true
 
 
-
 func _on_heart_mouse_exited() -> void:
 	$IdealToyVision.visible = false
+
+
+func _on_gold_claw_mouse_entered():
+	$"Gold Vision".visible = true
+	pass # Replace with function body.
+
+
+func _on_gold_claw_mouse_exited():
+	$"Gold Vision".visible = false
+	pass # Replace with function body.
+	
+
+func _on_red_claw_mouse_entered():
+	$"Red Vision".visible = true
+	pass # Replace with function body.
+
+
+func _on_red_claw_mouse_exited():
+	$"Red Vision".visible = false
+	pass # Replace with function body.

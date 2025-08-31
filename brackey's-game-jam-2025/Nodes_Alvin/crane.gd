@@ -20,9 +20,7 @@ var craneType = ["Default","Gold", "Sticky"]
 var currentCraneType
 var tokenUse = true
 var tokens 
-
 var isGameOver = false
-
 #Default is Default, Gold gives double the points, Sticky halves the weight
 func _ready() -> void:
 	position = Vector2(160,50)
@@ -60,6 +58,7 @@ func move():
 		#but for this, it's just utilizing left and right	
 	craneTexture = idleClaw
 	if tokens >= 0:
+		isGameOver = false
 		var direction = Input.get_vector("left", "right", "up", "down")
 		if direction == Vector2(1,0) or direction == Vector2 (-1,0)or direction == Vector2 (0,0) :
 			if (direction == Vector2(-1,0) and position.x >= 160) or (direction == Vector2 (1,0) and position.x <= 850) or direction == Vector2 (0,0):
@@ -82,8 +81,11 @@ func move():
 				print(toy.position.x)
 				if toy.position.x <= 265:
 					toyBool = true
-		if !toyBool:
+		if !toyBool and isGameOver == false:
 			gameOver.emit()
+			isGameOver = true
+			
+			
 func grab():
 	#print("grab")
 	#The claw lowers itself down from where the player left the claw

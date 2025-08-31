@@ -91,6 +91,13 @@ func _on_detect_area_area_entered(area: Area2D) -> void:
 	#area.queue_free() #Deletes the game object
 		
 func resetProgressBar(level):
+	match Globals.LevelCount:
+		1:
+			$ProgressBar.texture_progress = load("res://Assets_Alvin/Sprites/Hearts/Heart_1.png")
+		2:
+			$ProgressBar.texture_progress = load("res://Assets_Alvin/Sprites/Hearts/Heart_2.png")
+		3:
+			$ProgressBar.texture_progress = load("res://Assets_Alvin/Sprites/Hearts/Heart_3.png")
 	$ProgressBar.value = 0
 	$ProgressBar.max_value = 75 * level
 	pass
